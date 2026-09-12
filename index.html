@@ -1,0 +1,2372 @@
+<!DOCTYPE html>
+<html lang="en" id="htmlRoot">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meira's Table | השולחן של מאירה</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;600;700&family=Assistant:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F3E8D6;
+    --card:#FFFBF2;
+    --ink:#2B2013;
+    --ink-soft:#6B5B45;
+    --line: rgba(43,32,19,0.14);
+
+    --olive:#5B6B47;    --olive-soft:#E6E9DD;
+    --rust:#B0532A;     --rust-soft:#F3E1D5;
+    --mustard:#C89B3C;  --mustard-soft:#F6EAD2;
+    --clay:#8C5A3C;     --clay-soft:#EFE0D3;
+    --fig:#6B4A5E;      --fig-soft:#EEE1E6;
+    --honey:#D9A441;    --honey-soft:#FBF0DA;
+  }
+
+  *{box-sizing:border-box;}
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Assistant', sans-serif;
+    line-height:1.5;
+  }
+
+  h1,h2,h3,.serif{
+    font-family:'Frank Ruhl Libre', serif;
+    font-weight:600;
+    margin:0;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    height:min(52vh, 420px);
+    min-height:280px;
+    width:100%;
+    overflow:hidden;
+    background:#7A5C3E;
+    /* HERO PHOTO: once a real photo is ready, delete .hero-illustration's <svg>
+       and instead set here: background-image:url('your-photo.jpg'); background-size:cover; background-position:center; */
+  }
+
+  .hero-illustration{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+  }
+
+  .hero::after{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:rgba(30,20,10,0.32);
+  }
+
+  .hero-content{
+    position:relative;
+    z-index:1;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:0 20px;
+  }
+
+  .site-title-en{
+    font-size:clamp(2.4rem, 6vw, 3.6rem);
+    color:#FFFBF2;
+  }
+
+  .site-title-he{
+    font-size:clamp(1.2rem, 3vw, 1.6rem);
+    color:#F3E8D6;
+    margin-top:8px;
+  }
+
+  .divider{
+    width:180px;
+    height:14px;
+    margin:22px auto 0;
+    display:block;
+  }
+
+  /* ---------- Sticky nav ---------- */
+  nav.topnav{
+    position:sticky;
+    top:0;
+    z-index:20;
+    background:rgba(243,232,214,0.96);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+    padding:14px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:28px;
+    flex-wrap:wrap;
+  }
+
+  nav.topnav .nav-links{
+    display:flex;
+    gap:26px;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+
+  nav.topnav a{
+    font-size:0.95rem;
+    font-weight:600;
+    color:var(--ink-soft);
+    text-decoration:none;
+    padding:4px 2px;
+    border-bottom:2px solid transparent;
+    transition:color 0.15s ease, border-color 0.15s ease;
+    white-space:nowrap;
+  }
+
+  nav.topnav a:hover{
+    color:var(--ink);
+    border-color:var(--rust);
+  }
+
+  .lang-toggle{
+    display:flex;
+    gap:6px;
+    border-inline-start:1px solid var(--line);
+    padding-inline-start:24px;
+    margin-inline-start:4px;
+  }
+
+  .lang-toggle button{
+    font-family:'Assistant', sans-serif;
+    font-size:0.88rem;
+    font-weight:600;
+    padding:6px 16px;
+    border-radius:999px;
+    border:1.5px solid var(--line);
+    background:transparent;
+    color:var(--ink-soft);
+    cursor:pointer;
+    transition:background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  }
+
+  .lang-toggle button.active{
+    background:var(--ink);
+    border-color:var(--ink);
+    color:var(--cream);
+  }
+
+  @media (max-width:720px){
+    nav.topnav{ gap:16px; padding:12px 16px; }
+    .lang-toggle{ border-inline-start:none; padding-inline-start:0; margin-inline-start:0; width:100%; justify-content:center; order:-1; padding-bottom:8px; border-bottom:1px solid var(--line); margin-bottom:6px; }
+  }
+
+  /* ---------- Sections ---------- */
+  main{
+    max-width:1000px;
+    margin:0 auto;
+    padding:20px 24px 80px;
+  }
+
+  section.category{
+    padding-top:56px;
+    scroll-margin-top:78px;
+  }
+
+  .chapter-head{
+    display:flex;
+    align-items:baseline;
+    gap:16px;
+    margin-bottom:10px;
+  }
+
+  .chapter-num{
+    font-size:2.4rem;
+    color:var(--rust);
+    line-height:1;
+  }
+
+  .chapter-title{
+    font-size:1.7rem;
+  }
+
+  .stitch{
+    width:100%;
+    height:10px;
+    margin:14px 0 26px;
+    display:block;
+  }
+
+  /* ---------- Card grid ---------- */
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));
+    gap:22px 20px;
+  }
+
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-top:none;
+    padding:24px 20px 20px;
+    cursor:pointer;
+    text-align:start;
+    transition:transform 0.15s ease, box-shadow 0.15s ease;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    min-height:120px;
+    width:100%;
+    font-family:inherit;
+    clip-path:polygon(
+      0% 6%, 5% 0%, 10% 5%, 15% 1%, 20% 6%, 25% 1%, 30% 5%, 35% 0%,
+      40% 6%, 45% 1%, 50% 5%, 55% 0%, 60% 6%, 65% 1%, 70% 5%, 75% 0%,
+      80% 6%, 85% 1%, 90% 5%, 95% 0%, 100% 6%,
+      100% 100%, 0% 100%
+    );
+  }
+
+  .card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 22px rgba(43,32,19,0.1);
+  }
+
+  .card:focus-visible{
+    outline:2px solid var(--rust);
+    outline-offset:2px;
+  }
+
+  .card-icon{
+    width:26px;
+    height:26px;
+  }
+
+  .card-title{
+    font-size:1.25rem;
+  }
+
+  .empty-note{
+    color:var(--ink-soft);
+    font-size:0.95rem;
+    font-style:italic;
+    padding:6px 2px 4px;
+  }
+
+  /* ---------- Recipe overlay ---------- */
+  .overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(43,32,19,0.45);
+    display:none;
+    align-items:flex-start;
+    justify-content:center;
+    padding:40px 16px;
+    overflow-y:auto;
+    z-index:30;
+  }
+
+  .overlay.open{ display:flex; }
+
+  .sheet{
+    background:var(--card);
+    max-width:680px;
+    width:100%;
+    border-radius:8px;
+    padding:36px 34px 40px;
+    position:relative;
+    box-shadow:0 20px 50px rgba(43,32,19,0.25);
+  }
+
+  .close-btn{
+    position:absolute;
+    top:18px;
+    inset-inline-end:18px;
+    background:transparent;
+    border:none;
+    font-size:1.4rem;
+    color:var(--ink-soft);
+    cursor:pointer;
+    line-height:1;
+    padding:4px 8px;
+  }
+
+  .close-btn:hover{ color:var(--ink); }
+
+  .sheet-head{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:22px;
+    padding-inline-end:30px;
+  }
+
+  .sheet-icon{ width:30px; height:30px; flex-shrink:0; }
+
+  .sheet h2{
+    font-size:1.9rem;
+  }
+
+  .sheet-body{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:0;
+  }
+
+  @media (min-width:640px){
+    .sheet-body{
+      grid-template-columns:1fr 1fr;
+      gap:0 32px;
+    }
+  }
+
+  .sheet h3{
+    font-size:1.05rem;
+    color:var(--rust);
+    margin-top:0;
+    margin-bottom:10px;
+  }
+
+  .sheet ul, .sheet ol{
+    margin:0;
+    padding-inline-start:22px;
+  }
+
+  .sheet li{
+    margin-bottom:8px;
+  }
+
+  .sheet-notes{
+    grid-column:1 / -1;
+    margin-top:22px;
+    padding-top:18px;
+    border-top:1px solid var(--line);
+    font-size:0.92rem;
+    color:var(--ink-soft);
+    font-style:italic;
+    line-height:1.6;
+  }
+
+  footer{
+    text-align:center;
+    padding:30px 20px 50px;
+    color:var(--ink-soft);
+    font-size:0.85rem;
+  }
+
+  @media (max-width:480px){
+    .sheet{ padding:28px 22px 32px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <svg class="hero-illustration" viewBox="0 0 1200 620" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of a warm, set family table">
+    <rect width="1200" height="620" fill="#7A5C3E"/>
+    <rect width="1200" height="620" fill="#8C6A44" opacity="0.5"/>
+    <ellipse cx="600" cy="470" rx="640" ry="220" fill="#6E5236"/>
+    <ellipse cx="600" cy="300" rx="200" ry="200" fill="#F3E8D6"/>
+    <ellipse cx="600" cy="300" rx="160" ry="160" fill="#FFFBF2"/>
+    <ellipse cx="600" cy="300" rx="118" ry="118" fill="none" stroke="#D9C7A6" stroke-width="3"/>
+    <g stroke="#8C5A3C" stroke-width="10" stroke-linecap="round">
+      <line x1="380" y1="180" x2="380" y2="420"/>
+      <line x1="345" y1="180" x2="345" y2="260"/>
+      <line x1="365" y1="180" x2="365" y2="260"/>
+    </g>
+    <g stroke="#8C5A3C" stroke-width="10" stroke-linecap="round">
+      <line x1="825" y1="180" x2="825" y2="420"/>
+    </g>
+    <ellipse cx="825" cy="175" rx="16" ry="8" fill="#8C5A3C"/>
+    <g transform="translate(930,150)">
+      <rect x="-8" y="40" width="16" height="130" rx="6" fill="#B0532A"/>
+      <ellipse cx="0" cy="30" rx="12" ry="20" fill="#D9A441"/>
+      <ellipse cx="0" cy="24" rx="6" ry="11" fill="#F6EAD2"/>
+    </g>
+    <g transform="translate(985,155)">
+      <rect x="-7" y="35" width="14" height="115" rx="6" fill="#B0532A"/>
+      <ellipse cx="0" cy="26" rx="10" ry="17" fill="#D9A441"/>
+      <ellipse cx="0" cy="21" rx="5" ry="9" fill="#F6EAD2"/>
+    </g>
+    <g transform="translate(255,330)">
+      <path d="M0,40 C-30,10 -30,-30 0,-40 C30,-30 30,10 0,40 Z" fill="#5B6B47"/>
+      <path d="M0,-40 C10,-10 10,10 0,40" stroke="#4A5A38" stroke-width="3" fill="none"/>
+    </g>
+    <g transform="translate(215,300) rotate(-18)">
+      <ellipse cx="0" cy="0" rx="20" ry="9" fill="#5B6B47"/>
+    </g>
+    <g transform="translate(300,270) rotate(20)">
+      <ellipse cx="0" cy="0" rx="16" ry="7" fill="#6B7A58"/>
+    </g>
+  </svg>
+  <div class="hero-content">
+    <h1 class="site-title-en" id="titleEn">Meira's Table</h1>
+    <div class="site-title-he" id="titleHe" dir="rtl">השולחן של מאירה</div>
+    <svg class="divider" viewBox="0 0 180 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2 8C15 2 25 2 38 8C51 14 61 14 74 8C87 2 97 2 110 8C123 14 133 14 146 8C159 2 169 2 178 8" stroke="#F3E8D6" stroke-width="2.5" stroke-linecap="round"/>
+    </svg>
+  </div>
+</div>
+
+<nav class="topnav">
+  <div class="nav-links" id="navLinks"></div>
+  <div class="lang-toggle" id="langToggle">
+    <button data-lang="en" class="active">English</button>
+    <button data-lang="he">עברית</button>
+  </div>
+</nav>
+
+<main id="main"></main>
+
+<footer id="footerText">Meira's Table — a family recipe collection</footer>
+
+<div class="overlay" id="overlay">
+  <div class="sheet" id="sheet"></div>
+</div>
+
+<script>
+  const icons = {
+    olive: '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 16c0 6 5 10 11 10s11-4 11-10"/><path d="M5 16h22"/><path d="M12 9c1-2 2-3 2-5"/><path d="M17 9c1-2 1-4 0-6"/></svg>',
+    rust: '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16c3-5 9-8 14-6 3 1 5 4 4 7-1 2-3 3-5 2-1 0-2-1-1-3"/><path d="M6 16c-1 2-2 3-3 3"/><circle cx="20" cy="13" r="0.8" fill="currentColor" stroke="none"/></svg>',
+    mustard: '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="10"/><circle cx="16" cy="16" r="4"/></svg>',
+    clay: '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20c0-7 4-12 10-12s10 5 10 12c0 2-2 3-10 3S6 22 6 20z"/><path d="M12 12v6"/><path d="M20 12v6"/></svg>',
+    fig: '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 26V13c0-2 1.5-3 3-3s3 1 3 3"/><path d="M11 13c0-3-2-5-2-5" fill="currentColor"/><path d="M20 26V13c0-2 1.5-3 3-3s3 1 3 3"/><path d="M20 13c0-3-2-5-2-5" fill="currentColor"/></svg>',
+    honey: '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 5c4 6 7 10 7 14a7 7 0 0 1-14 0c0-4 3-8 7-14z"/></svg>'
+  };
+
+  const categories = [
+    { key:'salads-soups',     en:'Salads & Soups',     he:'סלטים ומרקים',      color:'olive'   },
+    { key:'fish-meat',        en:'Fish & Meat',        he:'דגים ובשר',         color:'rust'    },
+    { key:'sides',            en:'Sides',              he:'תוספות',            color:'mustard' },
+    { key:'breads',           en:'Breads',             he:'לחמים',             color:'clay'    },
+    { key:'shabbat-morning',  en:'Saturday Morning',   he:'בוקר של שבת',       color:'fig'     },
+    { key:'sweet',            en:'Sweet',              he:'מתוק',              color:'honey'   }
+  ];
+
+  const recipes = [
+  {
+    "id": "tomato-salad",
+    "category": "salads-soups",
+    "title": {
+      "en": "Spicy Tomato Salad",
+      "he": "סלט עגבניות חריף"
+    },
+    "ingredients": {
+      "en": [
+        "3-4 ripe, peeled red tomatoes (Roma or garden variety)",
+        "1 hot green pepper",
+        "4 cloves garlic, chopped",
+        "½ cup chopped cilantro",
+        "1 tsp ground white pepper",
+        "½ cup olive oil",
+        "Salt"
+      ],
+      "he": [
+        "3-4 עגבניות אדומות מזן תמר או עגבניות שטח בשלות וקלופות",
+        "1 פלפל ירוק חריף",
+        "4 שיני שום קצוצות",
+        "½ כוס כוסברה קצוצה",
+        "1 כפית פלפל לבן גרוס",
+        "½ כוס שמן זית",
+        "מלח"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Halve the tomatoes and dice each half. Place in a bowl.",
+        "Halve the green pepper lengthwise, remove the seeds, and chop finely. Add to the bowl.",
+        "Add the remaining ingredients, mix well, and serve."
+      ],
+      "he": [
+        "חוצים את העגבניות וחותכים כל מחצית לקוביות. מניחים בקערה.",
+        "חוצים את הפלפל הירוק לאורכו, מסלקים את הזרעים וקוצצים דק. מוסיפים לקערה.",
+        "מוסיפים את שאר המרכיבים, מערבבים היטב ומגישים."
+      ]
+    }
+  },
+  {
+    "id": "cauliflower-salad",
+    "category": "salads-soups",
+    "title": {
+      "en": "Cauliflower Salad",
+      "he": "סלט כרובית"
+    },
+    "ingredients": {
+      "en": [
+        "1 small cauliflower, coarsely grated",
+        "1/2 bunch parsley, chopped",
+        "1/2 bunch cilantro, chopped",
+        "Walnuts, pecans, or any nuts/seeds you like",
+        "Cranberries",
+        "— Dressing —",
+        "1/4 cup olive oil",
+        "1/8 cup lemon juice",
+        "2 tbsp honey or maple syrup",
+        "Salt"
+      ],
+      "he": [
+        "1 כרובית קטנה מגורדת בפומפייה גסה",
+        "1/2 חבילה פטרוזיליה קצוצה",
+        "1/2 כוסברה קצוצה",
+        "אגוזי מלך, פקאן, או גרעינים מכל סוג שרוצים",
+        "חמוציות",
+        "— רוטב —",
+        "1/4 כוס שמן זית",
+        "1/8 כוס מיץ לימון",
+        "2 כפות דבש או מייפל",
+        "מלח"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Coarsely grate the cauliflower.",
+        "Chop the parsley and cilantro. Toast and chop the nuts.",
+        "Prepare the dressing and mix everything together."
+      ],
+      "he": [
+        "מגרדים את הכרובית בפומפייה גסה.",
+        "קוצצים פטרוזיליה וכוסברה. קולים וקוצצים את האגוזים.",
+        "מכינים את הרוטב ומערבבים הכל יחד."
+      ]
+    }
+  },
+  {
+    "id": "chopped-liver",
+    "category": "fish-meat",
+    "title": {
+      "en": "Chopped Liver",
+      "he": "כבד קצוץ"
+    },
+    "ingredients": {
+      "en": [
+        "500g chicken liver",
+        "3 large onions",
+        "5 hard-boiled eggs"
+      ],
+      "he": [
+        "500 גרם כבד עוף",
+        "3 בצלים גדולים",
+        "5 ביצים קשות"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Prepare the hard-boiled eggs.",
+        "Chop the onion and fry until caramelized.",
+        "Add the liver and fry together until medium doneness; season with salt and pepper. Don't over-season — you can adjust after grinding.",
+        "Grind everything together in a meat grinder, including the residual sauce left in the pan."
+      ],
+      "he": [
+        "מכינים ביצים קשות.",
+        "קוצצים את הבצל ומטגנים עד לקירמול.",
+        "מוסיפים את הכבד ומטגנים ביחד לרמת מדיום, מתבלים במלח ופלפל. לא לשים יותר מדי — ניתן לאזן גם אחרי הטחינה.",
+        "טוחנים את הכל במכונת בשר, כולל הרוטב שנשאר במחבת."
+      ]
+    }
+  },
+  {
+    "id": "caprese-salad",
+    "category": "salads-soups",
+    "title": {
+      "en": "Caprese Salad",
+      "he": "סלט קפרזה"
+    },
+    "ingredients": {
+      "en": [
+        "Marinated artichoke hearts",
+        "Toasted bread cubes",
+        "Fresh mozzarella cheese",
+        "Cherry tomatoes",
+        "Black olives (optional)",
+        "Basil leaves",
+        "Olive oil",
+        "Salt and pepper",
+        "Pesto"
+      ],
+      "he": [
+        "ארטישוק כבוש",
+        "קוביות לחם קלויות",
+        "גבינת מוצרלה טריה",
+        "עגבניות שרי",
+        "זיתים שחורים (לא חובה)",
+        "עלי בזיליקום",
+        "שמן זית",
+        "מלח ופלפל",
+        "ממרח פסטו"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Spread the pesto on a wide plate.",
+        "On top, arrange the artichoke pieces, cherry tomatoes, toasted bread cubes, and olives.",
+        "Tear the mozzarella into pieces and place on top.",
+        "Drizzle with olive oil and pepper.",
+        "Squeeze a tomato over the top."
+      ],
+      "he": [
+        "על צלחת רחבה מורחים את ממרח הפסטו.",
+        "מעל מניחים פסיות ארטישוק, עגבניות שרי, קוביות לחם קלויות וזיתים.",
+        "קורעים את המוצרלה לחתיכות ומניחים מעל.",
+        "שמן זית ופלפל.",
+        "סוחטים עגבניה מלמעלה."
+      ]
+    }
+  },
+  {
+    "id": "papaya-salad",
+    "category": "salads-soups",
+    "title": {
+      "en": "Green Papaya Salad",
+      "he": "סלט פפאיה"
+    },
+    "ingredients": {
+      "en": [
+        "100g rice noodles",
+        "1 green papaya",
+        "4 cloves garlic, crushed",
+        "1 hot red chili pepper, chopped",
+        "1 cup bean sprouts",
+        "2 tbsp mint leaves, cut into strips",
+        "2 tbsp pad thai sauce",
+        "Juice of 2 limes",
+        "1 tsp fish sauce",
+        "Sugar, to taste (optional)"
+      ],
+      "he": [
+        "100 גר׳ אטריות",
+        "1 פפאיה ירוקה",
+        "4 שיני שום כתושות",
+        "1 פלפל צ'ילי אדום חריף קצוץ",
+        "1 כוס נבטי שעועית",
+        "2 כפות עלי נענע חתוכים לרצועות",
+        "2 כפות רוטב פאד תאי",
+        "מיץ משני לימונים",
+        "1 כפית רוטב דגים",
+        "אפשר סוכר"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Cook the noodles.",
+        "Score the green papaya lengthwise with a knife, then use a peeler to cut it into thin strips.",
+        "In a mortar and pestle, pound the garlic and chili until a paste forms.",
+        "Add the fish sauce, sugar, and lime juice, and continue pounding for another minute.",
+        "Mix in the remaining ingredients.",
+        "Lightly pound/bruise the salad ingredients together.",
+        "Add the bean sprouts and greens.",
+        "Garnish with roasted peanuts."
+      ],
+      "he": [
+        "מבשלים את האטריות.",
+        "חורצים את הפפאיה הירוקה לאורך בסכין. בעזרת קולפן חותכים לרצועות דקות.",
+        "במכתש ועלי כותשים את השום והצ'ילי החריף עד לקבלת מרקם משחתי.",
+        "מוסיפים את רוטב הדגים, הסוכר ומיץ הלימון וממשיכים לכתוש כדקה נוספת.",
+        "מערבבים את יתר החומרים.",
+        "מועכים את מרכיבי הסלט בעדינות.",
+        "מוסיפים נבטים וירק.",
+        "מקשטים בבוטנים קלויים."
+      ]
+    },
+    "notes": {
+      "en": "The exact noodle type wasn't fully legible in the original notes — thin rice noodles are the traditional choice for this dish.",
+      "he": "סוג האטריות המדויק לא היה קריא לגמרי במקור — אטריות אורז דקות הן הבחירה המסורתית למנה הזו."
+    }
+  },
+  {
+    "id": "cucumber-watermelon-feta",
+    "category": "salads-soups",
+    "title": {
+      "en": "Cucumber, Watermelon and Feta Salad",
+      "he": "סלט מלפפונים, אבטיח וגבינת פטה"
+    },
+    "ingredients": {
+      "en": [
+        "3 cucumbers",
+        "6 cups cubed watermelon",
+        "2 tbsp olive oil",
+        "2 tbsp balsamic vinegar",
+        "1 cup cubed feta cheese (optional)",
+        "1/3 cup mint leaves",
+        "1 level tsp salt",
+        "Black pepper, to taste"
+      ],
+      "he": [
+        "3 מלפפונים",
+        "6 כוסות קוביות אבטיח",
+        "2 כפות שמן זית",
+        "2 כפות חומץ בלסמי",
+        "כוס קוביות גבינת פטה (אופציונלי)",
+        "1/3 כוס עלי נענע",
+        "כפית שטוחה מלח",
+        "פלפל שחור לפי הטעם"
+      ]
+    },
+    "steps": {
+      "en": [
+        "In a large bowl, mix the cucumbers, watermelon cubes, olive oil, balsamic vinegar, salt and pepper.",
+        "Sprinkle feta cheese and mint leaves on top and serve."
+      ],
+      "he": [
+        "בקערה גדולה מערבבים מלפפונים, קוביות אבטיח, שמן זית, חומץ בלסמי, מלח ופלפל.",
+        "מפזרים מלמעלה גבינת פטה ועלי נענע ומגישים."
+      ]
+    }
+  },
+  {
+    "id": "corn-cherry-tomato-salad",
+    "category": "salads-soups",
+    "title": {
+      "en": "Sweet Corn and Cherry Tomato Salad",
+      "he": "סלט תירס טרי מתוק ועגבניות שרי"
+    },
+    "ingredients": {
+      "en": [
+        "Kernels from 3-4 fresh sweet corn cobs",
+        "1 cup cherry tomatoes, halved",
+        "1 cup chopped cilantro leaves (basil, arugula or green onion also work)",
+        "1/2 red onion, finely chopped",
+        "1/2 red chili, finely chopped",
+        "5 tbsp olive oil",
+        "Juice of 1/2 lime (or lemon)",
+        "Salt",
+        "Ground black pepper"
+      ],
+      "he": [
+        "גרעינים מ-3-4 קלחי תירס טריים (מזן מתוק)",
+        "כוס עגבניות שרי, חצויות",
+        "1 כוס עלי כוסברה, קצוצים (אפשר גם בזיליקום, רוקט או בצל ירוק)",
+        "1/2 בצל סגול, קצוץ דק",
+        "1/2 צ'ילי אדום, קצוץ דק",
+        "5 כפות שמן זית",
+        "מיץ מחצי ליים (או לימון)",
+        "מלח",
+        "פלפל שחור גרוס"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Mix all the ingredients in a bowl, taste, and adjust the seasoning."
+      ],
+      "he": [
+        "מערבבים את כל החומרים בקערה, טועמים ומתקנים תיבול לפי הטעם."
+      ]
+    }
+  },
+  {
+    "id": "eggplant-soup",
+    "category": "salads-soups",
+    "title": {
+      "en": "Eggplant Soup",
+      "he": "מרק חצילים"
+    },
+    "ingredients": {
+      "en": [
+        "3 eggplants",
+        "1 white onion",
+        "1 leek",
+        "2 cloves garlic",
+        "2 packages chestnuts",
+        "2 small potatoes",
+        "1/2 celery root",
+        "Clear vegetable stock",
+        "2 cups milk",
+        "1/2 cup heavy cream"
+      ],
+      "he": [
+        "3 חצילים",
+        "1 בצל לבן",
+        "1 כרישה",
+        "2 שיני שום",
+        "2 חבילות ערמונים",
+        "2 תפוח״א קטנים",
+        "1/2 ראש סלרי",
+        "ציר מרק ירקות צח",
+        "2 כוסות חלב",
+        "1/2 כוס שמנת מתוקה"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Char the eggplants over an open flame until burnt on the outside. Let cool, then peel off the burnt skin.",
+        "Chop the onion and leek and sauté in olive oil until soft and translucent (can be done directly in the pot).",
+        "Cut the celery root, potatoes, and chestnuts into pieces and add to the pot. Add the vegetable stock and cook over medium heat.",
+        "Once all the vegetables are soft, remove from heat and blend until smooth. Add the milk and heavy cream, and season with salt and pepper to taste."
+      ],
+      "he": [
+        "קולים את החצילים על אש גלויה עד שהם שרופים מבחוץ. מקררים ומקלפים את החלק השרוף.",
+        "קוצצים את הבצל והכרישה ומטגנים בשמן זית עד שהם נהיים רכים ושקופים (אפשר ישירות בסיר).",
+        "חותכים את הסלרי, תפוחי האדמה והערמונים לחתיכות ומוסיפים לסיר. מוסיפים ציר ירקות ומבשלים על אש בינונית.",
+        "כשכל הירקות רכים, מורידים מהאש וטוחנים עד שמתקבל מרק חלק. מוסיפים את החלב והשמנת המתוקה ומתבלים במלח ופלפל לפי הטעם."
+      ]
+    }
+  },
+  {
+    "id": "baked-salmon-herb-crust",
+    "category": "fish-meat",
+    "title": {
+      "en": "Herb-Crusted Baked Salmon",
+      "he": "סלמון בתנור עם ציפוי עשבי תיבול"
+    },
+    "ingredients": {
+      "en": [
+        "600g salmon (150g per serving; whole piece or portions)",
+        "1/2 bunch parsley, chopped",
+        "1/4 bunch cilantro, chopped",
+        "A few mint leaves, chopped",
+        "3 sprigs thyme, leaves only",
+        "4 cloves garlic, chopped",
+        "1/2 cup panko breadcrumbs",
+        "Olive oil, enough to form a sticky wet-sand texture"
+      ],
+      "he": [
+        "דג סלמון במשקל 600 גר׳, 150 גר׳ לסועד (אפשר חתיכות או ביחידה אחת)",
+        "1/2 צרור פטרוזיליה קצוצה",
+        "1/4 צרור כוסברה קצוץ",
+        "כמה עלי נענע קצוצים",
+        "3 ענפי טימין, רק העלים",
+        "4 שיני שום קצוצות",
+        "1/2 כוס פירורי לחם פנקו",
+        "שמן זית ליצירת עיסה דביקה במרקם חול רטוב"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Soak the fish in water with the juice of half a lemon for 15 minutes.",
+        "Rinse and pat dry with paper towel. Sprinkle with a little salt and black pepper.",
+        "Mix all the herbs together with the breadcrumbs and olive oil.",
+        "On parchment paper, scatter a little of the herb mixture, place the fish on top, and coat with the rest.",
+        "Cover and refrigerate while you prepare the rest of the meal.",
+        "Remove the fish from the fridge 15 minutes before baking, then bake at 375°F (190°C) for 10-15 minutes."
+      ],
+      "he": [
+        "להוציא את הדג ולהשרות במים עם מיץ מחצי לימון ל-15 דקות.",
+        "לשטוף ולייבש במגבת נייר. לפזר מעט מלח ופלפל שחור.",
+        "לערבב את כל עשבי התיבול יחד עם פירורי הלחם ושמן הזית.",
+        "על נייר אפייה לפזר מעט מהתערובת, להניח את הדג ולצפות אותו בשאר התערובת.",
+        "להניח עטוף במקרר ובינתיים להכין את שאר הארוחה.",
+        "להוציא מהמקרר 15 דקות לפני האפייה ולהכניס לתנור ב-375 פרנהייט (190 מעלות) ל-10-15 דקות."
+      ]
+    }
+  },
+  {
+    "id": "orna-ella-fish",
+    "category": "fish-meat",
+    "title": {
+      "en": "Orna and Ella's Fish",
+      "he": "הדגים של אורנה ואלה"
+    },
+    "ingredients": {
+      "en": [
+        "2-3 medium potatoes, peeled, boiled whole and cooled",
+        "2 sea bream fillets, skinless",
+        "Mixed baby greens, arugula, or herbs like parsley or mint",
+        "2 very ripe tomatoes",
+        "Hot green pepper",
+        "2 cloves garlic",
+        "2 sprigs fresh za'atar (or thyme/oregano)",
+        "Salt",
+        "Pepper",
+        "Lemon"
+      ],
+      "he": [
+        "2-3 תפוחי אדמה בינוניים קלופים, מבושלים בשלמותם ומקוררים",
+        "2 דגי לברק מפולטים ללא עור",
+        "מיקס עלי בייבי או צרור רוקט או כל עשב תיבול שאוהבים כמו פטרוזיליה או נענע",
+        "2 עגבניות בשלות מאוד",
+        "פלפל ירוק חריף",
+        "2 שיני שום",
+        "2 גבעולי זעתר או אורגנו טרי",
+        "מלח",
+        "פלפל",
+        "לימון"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Preheat the oven to 180°C (355°F).",
+        "Cut the cooked potatoes into cubes. Mix in a bowl: 1/4 cup olive oil, 1 chopped garlic clove, 1/4 tsp salt, 1/8 tsp black pepper, and a few za'atar leaves. Pour over the potatoes and spread over the base of the baking dish.",
+        "Place the fish fillets on top of the potatoes, close together. Lightly salt and pepper each piece. Mix in a bowl: 5 tbsp olive oil, 1 chopped garlic clove, and half a finely chopped hot green pepper; pour over the fish, scatter za'atar leaves on top, and squeeze the seeds of one ripe tomato over them.",
+        "In a bowl, mix arugula leaves with 1/4 tsp salt, 1 tbsp lemon juice, 1 tbsp olive oil, the juice of a ripe tomato, and a little black pepper. Lay this mixture over the fish, covering it like a blanket of herbs. Bake for 20 minutes. Serve with a summer cucumber salad."
+      ],
+      "he": [
+        "נחמם תנור ל-180 מעלות.",
+        "נחתוך את תפוחי האדמה המבושלים לקוביות. נערבב בקערה: רבע כוס שמן זית, שן שום קצוצה, רבע כפית מלח, שמינית כפית פלפל שחור וכמה עלי זעתר. ניצוק על תפוחי האדמה ונשטח על בסיס התבנית.",
+        "מעל תפוחי האדמה נניח את הדגים בצמידות. נפלפל ונמליח מעט כל נתח. נערבב בקערה: 5 כפות שמן זית, שן שום קצוצה וחצי פלפל ירוק חריף קצוץ קטנטן, ניצוק על הדגים, נפזר עלי זעתר ונסחוט עליהם זרעי עגבניה אחת בשלה.",
+        "בקערה נערבב עלי רוקט עם רבע כפית מלח, כף מיץ לימון, כף שמן זית, מיץ מעגבניה בשלה ומעט פלפל שחור. נניח את התערובת על הדגים, ממש נכסה אותם בשמיכת עשבי תיבול. נשגר לתנור ל-20 דקות. נגיש עם סלט מלפפון קייצי."
+      ]
+    }
+  },
+  {
+    "id": "beef-eggplant-asian",
+    "category": "fish-meat",
+    "title": {
+      "en": "Beef and Eggplant in Asian Sauce",
+      "he": "בקר וחצילים ברוטב אסייתי"
+    },
+    "ingredients": {
+      "en": [
+        "300g beef (sirloin tip)",
+        "1 fresh eggplant, peeled and cut into batons",
+        "2 cloves garlic, finely chopped",
+        "1cm piece fresh ginger",
+        "1 dried hot red pepper, roughly chopped",
+        "1 green onion, finely chopped",
+        "— Marinade —",
+        "2 tbsp brandy",
+        "2 tbsp oil",
+        "2 tbsp soy sauce",
+        "Salt",
+        "Freshly ground black pepper",
+        "Oil, for deep frying",
+        "— Sauce —",
+        "2 tbsp soy sauce",
+        "1 tbsp brandy",
+        "1 tsp sesame oil",
+        "3 tbsp clear stock",
+        "Salt",
+        "Freshly ground black pepper",
+        "2 tbsp liquid caramel"
+      ],
+      "he": [
+        "300 גרם בשר בקר (שייטל)",
+        "1 חציל טרי קלוף וחתוך לאצבעות",
+        "2 שיני שום קצוצות דק",
+        "1 ס\"מ שורש ג'ינג'ר",
+        "1 פלפל אדום חריף יבש, קצוץ גס",
+        "1 בצל ירוק קצוץ דק",
+        "— למרינדה —",
+        "2 כפות ברנדי",
+        "2 כפות שמן",
+        "2 כפות רוטב סויה",
+        "מלח",
+        "פלפל שחור טחון טרי",
+        "שמן לטיגון עמוק",
+        "— לרוטב —",
+        "2 כפות רוטב סויה",
+        "1 כף ברנדי",
+        "1 כפית שמן שומשום",
+        "3 כפות ציר צח",
+        "מלח",
+        "פלפל שחור טחון טרי",
+        "2 כפות קרמל נוזלי"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Mix the marinade ingredients in a bowl. Marinate the beef for at least an hour.",
+        "Mix all the sauce ingredients in a small bowl, except the caramel.",
+        "Deep-fry the eggplant batons until browned. Remove to paper towel and set aside.",
+        "Heat a wok and add 2 tbsp oil. When very hot, add the beef.",
+        "Fry for 2 minutes and remove from the wok.",
+        "Add 2 tbsp oil to the wok. Stir-fry the garlic, ginger and hot pepper for a minute.",
+        "Add the beef and eggplant, stir-fry another minute. Pour in the caramel, stir for half a minute, then add the sauce mixture. Bring to a boil and cook until the sauce thickens and coats everything.",
+        "Transfer to a serving plate, sprinkle with green onion, and serve immediately."
+      ],
+      "he": [
+        "מערבבים בקערה את חומרי המרינדה. משרים את הבשר שעה לפחות.",
+        "מערבבים בקערית את כל חומרי הרוטב, למעט הקרמל.",
+        "מטגנים את אצבעות החציל בשמן עמוק עד שהן שחומות. מוציאים לנייר סופג ומניחים בצד.",
+        "מחממים ווק ומוסיפים 2 כפות שמן. כשהווק חם מאוד, מוסיפים את הבשר.",
+        "מטגנים 2 דקות ומוציאים מהווק.",
+        "מוסיפים לווק 2 כפות שמן. מטגנים שום, ג'ינג'ר ופלפל חריף כדקה, תוך כדי ערבוב.",
+        "מוסיפים את הבשר והחצילים ומטגנים-מערבבים דקה נוספת. יוצקים קרמל, מערבבים חצי דקה ומוסיפים את חומרי הרוטב. מביאים לרתיחה ומבשלים עד שהרוטב סמיך ומצפה היטב.",
+        "מעבירים לצלחת הגשה, מפזרים בצל ירוק ומגישים מיד."
+      ]
+    }
+  },
+  {
+    "id": "hovav-beef-slices",
+    "category": "fish-meat",
+    "title": {
+      "en": "Hovav's Braised Beef Slices",
+      "he": "פרוסות בקר של חובב"
+    },
+    "ingredients": {
+      "en": [
+        "2kg beef cut (No. 5 / chuck)",
+        "3 onions",
+        "1 tbsp brown sugar",
+        "1 tbsp sweet paprika",
+        "2-3 sprigs thyme",
+        "1 tbsp tomato paste",
+        "1 cup red wine",
+        "2 cups chicken stock",
+        "1-2 tbsp cornstarch, if needed"
+      ],
+      "he": [
+        "2 ק״ג נתח בשר מספר מס׳ 5",
+        "3 בצלים",
+        "1 כף סוכר חום",
+        "1 כף פפריקה מתוקה",
+        "2-3 גבעולי טימין",
+        "1 כף רסק עגבניות",
+        "1 כוס יין אדום",
+        "2 כוסות ציר עוף",
+        "1-2 כפות קורנפלור, אם יש צורך"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Season the meat with salt and pepper and sear in olive oil until browned. Set aside.",
+        "Chop the onion and fry until golden. Add the brown sugar, paprika, and tomato paste.",
+        "Add the wine and cook briefly until the alcohol evaporates.",
+        "Add the chicken stock and cook for 10 minutes.",
+        "Place the meat in a pot and pour the sauce over it. Cover tightly and seal with aluminum foil.",
+        "Bake in the oven at 160°C (320°F) for about 3 hours, until tender.",
+        "Remove the meat and slice.",
+        "Strain the sauce and thicken with the cornstarch.",
+        "To serve: arrange the slices on a platter, heat the sauce and pour over the meat.",
+        "For garnish, fry mushrooms in olive oil and place on top."
+      ],
+      "he": [
+        "לתבל את הנתח במלח ופלפל, לטגן בשמן זית עד שמשחים. לשים בצד.",
+        "לקצוץ את הבצל ולטגן עד שיזהיב. להוסיף סוכר חום, פפריקה ורסק.",
+        "להוסיף יין ולבשל מעט עד שהאלכוהול מתנדף.",
+        "להוסיף ציר עוף ולבשל במשך 10 דקות.",
+        "בקדרה לשים את נתח הבשר ולהוסיף מעל את הרוטב. לסגור את הקדרה היטב ולאטום בנייר כסף.",
+        "לבשל בתנור ב-160 מעלות במשך כ-3 שעות עד שמתרכך.",
+        "להוציא את נתח הבשר ולפרוס לפרוסות.",
+        "לסנן את הרוטב ולהסמיך בקורנפלור.",
+        "להגשה: להניח את הפרוסות על מגש, לחמם את הרוטב ולשפוך על הבשר.",
+        "לקישוט לטגן פטריות בשמן זית ולהניח מעל."
+      ]
+    }
+  },
+  {
+    "id": "lychee-chicken",
+    "category": "fish-meat",
+    "title": {
+      "en": "Lychee Chicken",
+      "he": "עוף בליצ'י"
+    },
+    "ingredients": {
+      "en": [
+        "— Marinade —",
+        "250g chicken breast",
+        "1 tbsp soy sauce",
+        "1 tbsp white wine (optional)",
+        "1 tsp sugar",
+        "Salt",
+        "Black pepper",
+        "1 level tsp cornstarch",
+        "— Vegetables —",
+        "1 Granny Smith apple, peeled and cut into 2cm cubes",
+        "Green onion, cut into 2cm pieces",
+        "Red pepper, cut into cubes",
+        "— Sauce —",
+        "1/4 cup lychee juice",
+        "3 tbsp vinegar",
+        "3 tbsp sugar",
+        "1 tbsp soy sauce",
+        "1 tbsp white wine (optional but recommended)",
+        "1/2 cup chicken stock",
+        "1 clove garlic, chopped",
+        "1/2 tsp chopped ginger",
+        "Oil (not olive oil)",
+        "1 can lychees, drained"
+      ],
+      "he": [
+        "— למרינדה —",
+        "250 גרם חזה עוף",
+        "כף רוטב סויה",
+        "כף יין לבן (לא חובה)",
+        "כפית סוכר",
+        "מלח",
+        "פלפל שחור",
+        "כפית שטוחה קורנפלור",
+        "— לירקות —",
+        "1 תפוח עץ ירוק (גרנד סמית) קלוף וחתוך לקוביות 2 ס\"מ",
+        "בצל ירוק חתוך ל-2 ס\"מ",
+        "פלפל אדום חתוך לקוביות",
+        "— לרוטב —",
+        "רבע כוס מיץ ליצ'י",
+        "3 כפות חומץ",
+        "3 כפות סוכר",
+        "כף רוטב סויה",
+        "כף יין לבן (לא חובה אבל כדאי)",
+        "חצי כוס ציר מרק עוף",
+        "שן שום קצוצה",
+        "חצי כפית זנגביל קצוץ",
+        "שמן, לא שמן זית",
+        "קופסת ליצ'י מסונן"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Marinate the chicken with all the marinade ingredients for half an hour.",
+        "In a wok or large pan, heat a little oil and stir-fry the chicken until light-colored, then remove from the pan.",
+        "Add the garlic and ginger to the pan and stir-fry.",
+        "Add the peppers and let them soften slightly. Add the apple. Add the drained lychees. Return the chicken to the pan. Add the sauce and mix.",
+        "If too watery, thicken with a tablespoon of cornstarch mixed with a little water."
+      ],
+      "he": [
+        "משרים את העוף עם כל חומרי המרינדה לחצי שעה.",
+        "בווק או מחבת גדולה שמים מעט שמן ומקפיצים את העוף עד שיהיה בהיר, ומוציאים מהמחבת.",
+        "מוסיפים למחבת שום וזנגביל ומקפיצים.",
+        "מוסיפים פלפלים ונותנים להתרכך מעט. מוסיפים תפוחים. מוסיפים ליצ'י מסונן. מחזירים את העוף. מוסיפים רוטב ומערבבים.",
+        "אם מיצי מדי, מסמיכים עם כף קורנפלור עם טיפת מים."
+      ]
+    },
+    "notes": {
+      "en": "The original recipe mentions lychee juice and drained lychees in the steps but doesn't list the can itself in the ingredients — added it here for clarity.",
+      "he": "המתכון המקורי מזכיר מיץ ליצ'י וליצ'י מסונן בשלבי ההכנה אך לא כלל את הקופסה עצמה ברשימת המצרכים — נוספה כאן לבהירות."
+    }
+  },
+  {
+    "id": "chicken-olives-plums",
+    "category": "fish-meat",
+    "title": {
+      "en": "Oven Chicken with Olives and Dried Plums",
+      "he": "עוף בתנור עם זיתים ושזיפים מיובשים"
+    },
+    "ingredients": {
+      "en": [
+        "12 chicken breasts and thighs, fat and skin removed",
+        "2 cups pitted dried plums (or dried apricots)",
+        "1 1/4 cups white wine",
+        "1/2 cup dark brown sugar + 1/4 cup for scattering",
+        "3/4 cup olive oil",
+        "3/4 cup red wine vinegar",
+        "3/4 cup pitted green olives",
+        "3/4 cup capers",
+        "4 tbsp oregano",
+        "1 tsp black pepper",
+        "1 tsp salt",
+        "1/2 tsp paprika",
+        "6 bay leaves",
+        "1 small head garlic, chopped",
+        "3 tsp toasted, crushed coriander seeds",
+        "1/2 cup fresh cilantro leaves, for serving"
+      ],
+      "he": [
+        "12 חזות עוף וכרעיים, להסיר את השומן והעור",
+        "2 כוסות שזיפים מיובשים ללא חרצנים (או משמשים מיובשים)",
+        "1 ¼ כוסות יין לבן",
+        "½ כוס סוכר חום כהה + ¼ כוס לפיזור",
+        "¾ כוס שמן זית",
+        "¾ כוס חומץ יין אדום",
+        "¾ כוס זיתים ירוקים ללא חרצנים",
+        "¾ כוס צלפים",
+        "4 כפות אורגנו",
+        "1 כפית פלפל שחור",
+        "1 כפית מלח",
+        "½ כפית פלפל אדום",
+        "6 עלי דפנה",
+        "ראש שום קטן, קצוץ",
+        "3 כפיות זרעוני כוסברה קלויים וכתושים",
+        "½ כוס עלי כוסברה טריים להגשה"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Arrange the chicken in an even layer on 2-3 baking trays.",
+        "Mix all the ingredients except the 1/4 cup brown sugar. Pour the sauce over the chicken so the plums and capers are evenly distributed.",
+        "Cover and refrigerate overnight.",
+        "Preheat the oven to 175°C (350°F).",
+        "Scatter the remaining brown sugar between the trays and bake for an hour, basting the chicken with the sauce during cooking.",
+        "To serve, arrange the chicken on a platter with the sauce and scatter the cilantro on top."
+      ],
+      "he": [
+        "לסדר את העוף על 2-3 מגשי אפייה בשכבה אחידה.",
+        "לערבב את כל המרכיבים חוץ מרבע כוס הסוכר החום. לשפוך את הרוטב על העוף כך שהשזיפים והצלפים מפוזרים באופן שווה.",
+        "לכסות ולהשאיר במקרר למשך הלילה.",
+        "לחמם את התנור ל-175 מעלות.",
+        "לפזר את שארית הסוכר החום בין המגשים ולבשל במשך שעה, תוך הרטבת העוף ברוטב במהלך הבישול.",
+        "להגשה, לסדר את העוף על מגש עם הרוטב ולפזר את הכוסברה."
+      ]
+    }
+  },
+  {
+    "id": "roasted-cauliflower-anchovy",
+    "category": "sides",
+    "title": {
+      "en": "Roasted Cauliflower with Anchovy Dressing",
+      "he": "כרובית בתנור"
+    },
+    "ingredients": {
+      "en": [
+        "1 cauliflower",
+        "2 tbsp olive oil",
+        "— Dressing —",
+        "10-12 tbsp mayonnaise",
+        "1 jar/tin anchovies",
+        "1 tbsp white wine vinegar",
+        "1 tbsp water",
+        "1/2 bunch parsley",
+        "1 tbsp crushed garlic",
+        "1/4 red onion",
+        "Lemon juice"
+      ],
+      "he": [
+        "1 כרובית",
+        "2 כפות שמן זית",
+        "— לרוטב —",
+        "10-12 כפות מיונז",
+        "1 צנצנת/קופסה אנשובי",
+        "1 כף חומץ בן יין",
+        "1 כף מים",
+        "1/2 צרור פטרוזיליה",
+        "1 כף שום כתוש",
+        "1/4 בצל אדום",
+        "מיץ מלימון"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Break the cauliflower into florets.",
+        "In a bowl, toss the cauliflower with the olive oil and roast at 200°C (400°F) for about 40 minutes, until browned.",
+        "Mix together all the dressing ingredients and blend until smooth.",
+        "Toss 2-3 tablespoons of the dressing with the roasted cauliflower."
+      ],
+      "he": [
+        "מפרקים כרובית לפרחים.",
+        "בקערה מערבבים 2 כפות שמן זית עם הכרובית ואופים בתנור ב-200 מעלות כ-40 דקות עד שמשחים.",
+        "מערבבים יחד את כל מרכיבי הרוטב ומרסקים בבלנדר.",
+        "מערבבים 2-3 כפות מהרוטב עם הכרובית."
+      ]
+    }
+  },
+  {
+    "id": "lillian-potato-latkes",
+    "category": "sides",
+    "title": {
+      "en": "Lillian's Potato Latkes",
+      "he": "לביבות תפוחי אדמה של ליליאן"
+    },
+    "ingredients": {
+      "en": [
+        "1kg potatoes",
+        "1 cup self-rising flour",
+        "1 sour cream",
+        "3-4 eggs",
+        "1 tsp salt",
+        "Black pepper"
+      ],
+      "he": [
+        "1 ק״ג תפוחי אדמה",
+        "1 כוס קמח אוסם תופח",
+        "1 שמנת חמוצה",
+        "3-4 ביצים",
+        "1 כפית מלח",
+        "פלפל שחור"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Grate the potatoes and squeeze out the liquid well.",
+        "Mix all the ingredients together.",
+        "Fry in corn oil (not deep frying) the same way you'd fry an omelet."
+      ],
+      "he": [
+        "לגרד תפו״א ולסחוט היטב.",
+        "לערבב את כל החומרים.",
+        "לטגן בשמן תירס ולא בשמן עמוק, כמו שמטגנים חביתה."
+      ]
+    }
+  },
+  {
+    "id": "bagel-challah",
+    "category": "breads",
+    "title": {
+      "en": "Jerusalem Bagel Challah",
+      "he": "חלת בייגלה ירושלמי"
+    },
+    "ingredients": {
+      "en": [
+        "1kg plain white flour",
+        "130g (1/2 cup + 3 tbsp) sugar",
+        "2 tbsp (20g) dry yeast, or 50g fresh yeast",
+        "1 level tbsp fine salt",
+        "1 egg (optional)",
+        "600ml (2.5-3 cups) water",
+        "2 tbsp olive oil",
+        "— Coating —",
+        "1 tsp fine or coarse salt",
+        "Sesame seeds, a generous amount",
+        "— For brushing —",
+        "4-6 tbsp olive oil",
+        "1/2 tsp coarse salt"
+      ],
+      "he": [
+        "1 ק\"ג קמח לבן רגיל",
+        "130 גרם (חצי כוס + 3 כפות) סוכר",
+        "2 כפות (20 גר') שמרים יבשים (או 50 גר' שמרים טריים)",
+        "כף שטוחה מלח דק",
+        "1 ביצה (אופציונלי)",
+        "600 מ\"ל (2.5-3 כוסות) מים",
+        "2 כפות שמן זית",
+        "— לציפוי —",
+        "כפית מלח דק או גס",
+        "שומשום (הרבה)",
+        "— להברשה —",
+        "4-6 כפות שמן זית",
+        "1/2 כפית מלח גס"
+      ]
+    },
+    "steps": {
+      "en": [
+        "In a stand mixer bowl with the dough hook, combine the flour, yeast, and sugar and mix for about a minute. Gradually add the water, egg, and olive oil while mixing.",
+        "Knead for 10 minutes on low speed, adding the salt a minute before finishing.",
+        "Transfer the dough to a lightly oiled bowl, cover with plastic wrap and a towel, and let rise for 1.5-2 hours.",
+        "Divide the dough into 3 equal parts, and each part into 3 or 4 equal balls (depending on the challah shape you want).",
+        "Roll each ball into a strand.",
+        "Spread plenty of sesame seeds on a long plate and lightly salt them with fine salt.",
+        "Using a silicone brush, lightly wet each strand with water and place it wet-side-down onto the sesame.",
+        "Wet the top of the strand again and roll it in the sesame so it's coated on all sides. (At this stage, if making bagels instead, place the strands on a tray and bake for about 10-15 minutes.)",
+        "Braid the sesame-coated strands into a challah as usual (a four-strand braid is a classic choice).",
+        "Place on parchment paper on a baking tray, and bake at 180°C (350°F) until deep golden — about 25-30 minutes (exact time wasn't noted in the original, so check as it bakes)."
+      ],
+      "he": [
+        "בקערת מיקסר עם וו לישה מניחים קמח, שמרים וסוכר ומערבלים כדקה. מוסיפים לאט לאט, תוך כדי ערבול, את המים, הביצה ושמן הזית.",
+        "לשים במשך 10 דקות במהירות איטית, ודקה לפני הסוף מוסיפים את המלח.",
+        "מעבירים את הבצק לקערה משומנת מעט, מכסים בניילון נצמד ובמגבת ומתפיחים כשעה וחצי-שעתיים.",
+        "מחלקים את הבצק ל-3 חלקים שווים וכל חלק ל-3 או 4 כדורים שווים (תלוי בחלה שתכינו).",
+        "מגלגלים כל כדור לרצועה.",
+        "בצלחת ארוכה מפזרים הרבה שומשום וממליחים אותו מעט במלח דק.",
+        "בעזרת מברשת סיליקון מרטיבים מעט במים כל רצועה ומעבירים לצלחת עם השומשום כשהחלק הרטוב כלפי מטה.",
+        "מרטיבים שוב את החלק העליון של הרצועה ומגלגלים בשומשום כך שיצופו מכל צדדיה. (בשלב הזה, להכנת בייגלה, מניחים את הרצועות על התבנית ואופים כ-10-15 דק').",
+        "קולעים את הרצועות עם השומשום עליהן לחלה כרגיל (קליעה מארבע רצועות היא בחירה קלאסית).",
+        "מניחים על נייר אפייה בתבנית התנור ואופים ב-180 מעלות עד שהחלה זהובה מאוד — כ-25-30 דקות (הזמן המדויק לא צוין במקור, כדאי לעקוב תוך כדי אפייה)."
+      ]
+    },
+    "notes": {
+      "en": "The original notes don't give an exact bake time or temperature — 180°C for 25-30 minutes is a reasonable starting point for a challah this size; adjust based on how yours browns.",
+      "he": "בהערות המקוריות לא צוינו זמן וטמפרטורת אפייה מדויקים — 180 מעלות למשך 25-30 דקות הן נקודת פתיחה סבירה לחלה בגודל הזה; יש להתאים לפי ההשחמה."
+    }
+  },
+  {
+    "id": "onion-chestnut-challah",
+    "category": "breads",
+    "title": {
+      "en": "Onion Challah with Chestnuts and Herbs",
+      "he": "חלת בצל עם ערמונים ועשבי תיבול"
+    },
+    "ingredients": {
+      "en": [
+        "— Dough —",
+        "1kg challah flour (or regular white/bread flour)",
+        "1 tbsp (20g) fine salt",
+        "1/4 cup (50g) sugar",
+        "2 tbsp (18g) dry yeast",
+        "2 large eggs",
+        "1/3 cup (80ml) sunflower oil",
+        "1/4 cup (80g) honey",
+        "1.5 cups (360ml) lukewarm water",
+        "2 cloves garlic",
+        "— Toppings —",
+        "1/4 cup (60ml) olive oil",
+        "2-3 medium red onions",
+        "1 medium white onion",
+        "2 tsp coarse salt",
+        "2 tbsp sugar",
+        "1/2 tsp ground black pepper",
+        "2 packages (200g) vacuum-packed chestnuts",
+        "A large bunch of fresh herbs (sage, thyme, basil, lavender, lemon verbena, oregano, etc.)",
+        "— Coating —",
+        "1 egg, beaten",
+        "2 tbsp poppy seeds",
+        "2 tbsp coarse salt (Maldon preferred)"
+      ],
+      "he": [
+        "— לבצק —",
+        "1 ק\"ג קמח חלה (אפשר גם קמח לבן רגיל או קמח לחם)",
+        "1 כף (20 גרם) מלח דק",
+        "1/4 כוס (50 גרם) סוכר",
+        "2 כפות (18 גרם) שמרים יבשים",
+        "2 ביצים גדולות",
+        "1/3 כוס (80 מ\"ל) שמן חמניות",
+        "1/4 כוס (80 גרם) דבש",
+        "1.5 כוסות (360 מ\"ל) מים פושרים",
+        "2 שיני שום",
+        "— לתוספת —",
+        "1/4 כוס (60 מ\"ל) שמן זית",
+        "2-3 בצל סגול בגודל בינוני",
+        "1 בצל לבן בגודל בינוני",
+        "2 כפיות מלח גס",
+        "2 כפות סוכר",
+        "1/2 כפית פלפל שחור טחון",
+        "2 חבילות (200 גרם) ערמונים בואקום",
+        "צרור גדול עשבי תיבול טריים (מרווה, תימין, בזיליקום, לוונדר, לואיזה, אורגנו וכו')",
+        "— לציפוי —",
+        "1 ביצה טרופה",
+        "2 כפות פרג",
+        "2 כפות מלח גס (רצוי מאלדון)"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Sift the flour into the mixer bowl. Add salt and sugar and mix well.",
+        "Add the dry yeast and mix again until incorporated.",
+        "Attach the dough hook and, at medium speed, add the eggs, oil, and honey.",
+        "Add the water in a thin stream. Add the last quarter-cup gradually, tablespoon by tablespoon, only until you get a very soft, pliable dough.",
+        "Knead for 12-15 minutes at medium speed until the dough becomes very smooth and elastic.",
+        "In the last two minutes, add the crushed garlic and knead until incorporated.",
+        "Transfer the dough to a large oiled bowl, rolling it so it's well greased. Cover and let rise until doubled (1.5-2 hours).",
+        "Meanwhile, prepare the topping: peel and cut the onions into quarters (or thirds).",
+        "Heat the oil in a wide pan.",
+        "Add the onions, salt, sugar, and pepper, and mix well.",
+        "Fry for about 15 minutes, stirring occasionally, until the onions soften but don't become too mushy.",
+        "Remove from heat and cool completely.",
+        "Soak the chestnuts in a bowl of water.",
+        "Divide the dough into 80g balls.",
+        "Roll each ball into a thin sheet, then roll up into a thin strand.",
+        "Start braiding the challah. Stop about a quarter of the way through. Lay the bunch of herbs over the strands and continue braiding so the herbs are woven in.",
+        "Generously scatter the fried onions and chestnuts between the strands.",
+        "Cover loosely with plastic wrap and let rise for another hour.",
+        "Meanwhile, preheat the oven to 175°C (350°F).",
+        "Gently brush the risen dough with the beaten egg and sprinkle with poppy seeds and coarse salt.",
+        "Bake for about 25 minutes, until well risen and deep golden.",
+        "Remove and cool slightly before serving."
+      ],
+      "he": [
+        "מנפים לקערת המיקסר את הקמח. מוסיפים מלח וסוכר ומערבבים היטב.",
+        "מוסיפים את השמרים היבשים ומערבבים שוב עד להטמעה.",
+        "מחברים את וו הלישה ובמהירות בינונית מוסיפים ביצים, שמן ודבש.",
+        "מוסיפים את המים בזרם דק. את רבע הכוס האחרונה מוסיפים בהדרגה, כף אחר כף, ורק עד לקבלת בצק רך וגמיש מאוד.",
+        "לשים 12-15 דקות במהירות בינונית עד שהבצק הופך חלק וגמיש מאוד.",
+        "בשתי הדקות האחרונות מוסיפים את שיני השום הכתושות ולשים עד להטמעה.",
+        "מעבירים את הבצק לקערה גדולה משומנת, מגלגלים בתוכה כך שישומן היטב. מכסים ומתפיחים להכפלת הנפח (שעה וחצי-שעתיים).",
+        "בינתיים מכינים את התוספת: קולפים וחותכים לרבעים (או לשלושה חלקים) את הבצלים.",
+        "במחבת רחבה מחממים את השמן.",
+        "מוסיפים את הבצלים, המלח, הסוכר והפלפל ומערבבים היטב.",
+        "מטגנים כ-15 דקות תוך ערבוב מדי פעם, עד שהבצל מתרכך אך לא הופך לסמרטוטי מדי.",
+        "מסירים מהאש ומצננים לחלוטין.",
+        "משרים את הערמונים בקערה עם מים.",
+        "מחלקים את הבצק לכדורים במשקל 80 גרם.",
+        "מרדדים כל כדור לעלה דק ומגלגלים לרצועה דקה.",
+        "מתחילים לקלוע את החלה. עוצרים לאחר כרבע מהקליעה. מניחים את זר עשבי התיבול על הרצועות וממשיכים לקלוע כך שהזר שזור בפנים.",
+        "מפזרים בנדיבות בין הרצועות בצל מטוגן וערמונים.",
+        "מכסים באופן רופף בניילון נצמד ומתפיחים כשעה נוספת.",
+        "בינתיים מחממים תנור ל-175 מעלות.",
+        "מברישים את הבצק התפוח בעדינות בביצה הטרופה ומפזרים מעל פרג ומלח גס.",
+        "אופים כ-25 דקות עד שהחלה תפוחה וזהובה מאוד.",
+        "מוציאים ומצננים מעט לפני ההגשה."
+      ]
+    }
+  },
+  {
+    "id": "passover-rolls",
+    "category": "breads",
+    "title": {
+      "en": "Passover Rolls",
+      "he": "לחמניות פסח"
+    },
+    "ingredients": {
+      "en": [
+        "1 cup potato starch",
+        "1 cup fine matzah cake meal",
+        "1 cup corn flour/starch",
+        "1 packet (10g) baking powder",
+        "2 cups water",
+        "1 cup canola oil",
+        "8 eggs",
+        "Salt and black pepper"
+      ],
+      "he": [
+        "1 כוס קמח תפוחי אדמה",
+        "1 כוס קמח מצה (דק לעוגות)",
+        "1 כוס קמח תירס",
+        "1 שקית אפייה (10 ג')",
+        "2 כוסות מים",
+        "1 כוס שמן קנולה",
+        "8 ביצים",
+        "מלח ופלפל שחור"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Preheat oven to 200°C (400°F).",
+        "Bring the water, oil, salt, and pepper to a boil.",
+        "Remove from heat, add the flours/starches, and mix well.",
+        "Beat the eggs lightly, just until slightly frothy (2-3 minutes).",
+        "Add the eggs to the mixture gradually until fully absorbed.",
+        "Grease a muffin tin (or line with paper liners). Pour the mixture into the muffin cups and bake until golden and puffed — check starting around 25-30 minutes (exact time wasn't given in the original)."
+      ],
+      "he": [
+        "לחמם תנור ל-200 מעלות.",
+        "מרתיחים מים, שמן, מלח ופלפל.",
+        "מורידים מהאש, מוסיפים את הקמחים ומערבבים היטב.",
+        "מקציפים את הביצים קלות, רק עד שהתערובת מעט אוורירית (2-3 דקות).",
+        "מוסיפים את הביצים בהדרגה לתערובת עד שנבלעות לגמרי.",
+        "משמנים תבנית מאפינס (או שמים ניירות אפייה). מוזגים את התערובת ואופים עד שמזהיב ותפוח — כדאי לבדוק החל מ-25-30 דקות (הזמן המדויק לא צוין במקור)."
+      ]
+    },
+    "notes": {
+      "en": "No bake time was given in the original recipe — this is an estimate based on similar choux-style batters; keep an eye on the oven the first time you make them.",
+      "he": "במתכון המקורי לא צוין זמן אפייה — זו הערכה המבוססת על בלילות דומות מסוג פטה שו; מומלץ לעקוב בתנור בפעם הראשונה."
+    }
+  },
+  {
+    "id": "kubaneh",
+    "category": "shabbat-morning",
+    "title": {
+      "en": "Kubaneh",
+      "he": "קובנה"
+    },
+    "ingredients": {
+      "en": [
+        "1kg flour",
+        "5 tbsp sugar",
+        "1 tbsp salt",
+        "50g fresh yeast",
+        "2.5-3 cups water",
+        "150g butter or margarine"
+      ],
+      "he": [
+        "1 קג קמח",
+        "5 כפות סוכר",
+        "1 כף מלח",
+        "50 גר שמרים טריים",
+        "2.5-3 כוסות מים",
+        "150 גרם חמאה או מרגרינה"
+      ]
+    },
+    "steps": {
+      "en": [
+        "In a bowl, layer the salt, then flour, then sugar, yeast, and water.",
+        "Knead until you get a soft dough — not watery, not too firm. Let rise for 15 minutes.",
+        "Knead again, oil the top of the dough, and let rise for about an hour.",
+        "After an hour, divide into 5-6 balls. Melt the butter or margarine. Oil a work surface. Stretch each ball into a thin sheet, spread with butter, fold in from both sides, roll up, and place in a generously greased pot.",
+        "Bake at 180°C (350°F). After 40 minutes, open the lid and continue baking until browned. Flip the kubaneh and bake for another 10-15 minutes."
+      ],
+      "he": [
+        "בקערה שמים כף מלח, מעל קמח, מעל סוכר, שמרים ומים.",
+        "לשים עד שמתקבל בצק רך אבל לא מימי, ולא קשה. להשאיר לתפוח 15 דקות.",
+        "ללוש שוב, לשמן את הבצק מלמעלה, להשאיר לתפוח כשעה.",
+        "אחרי שעה לחלק ל-5-6 כדורים. להמיס חמאה או מרגרינה. לשמן משטח עבודה. למתוח כל כדור לעלה דק, למרוח חמאה, לקפל מימין ומשמאל, לגלגל ולהניח בסיר משומן בנדיבות.",
+        "לאפות ב-180 מעלות. אחרי 40 דקות לפתוח את המכסה ולהמשיך לאפות עד שמשחים. להפוך את הקובנה ולהמשיך לאפות עוד 10-15 דקות."
+      ]
+    }
+  },
+  {
+    "id": "jachnun",
+    "category": "shabbat-morning",
+    "title": {
+      "en": "Jachnun",
+      "he": "ג'חנון"
+    },
+    "ingredients": {
+      "en": [
+        "1kg flour",
+        "3 tsp sugar",
+        "1 tbsp salt",
+        "1/2 tbsp honey",
+        "1/2 tbsp jam",
+        "1/4 cup oil",
+        "2-2.5 cups water",
+        "1 pack Goldband margarine (margarine + milk blend)"
+      ],
+      "he": [
+        "1 ק\"ג קמח",
+        "3 כפית סוכר",
+        "1 כף מלח",
+        "½ כף דבש",
+        "½ כף ריבה",
+        "¼ כוס שמן",
+        "2-2.5 כוסות מים",
+        "1 מרגרינה גולדברנד (מרגרינה + חלב)"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Put all the ingredients except the water in a mixer and mix. Gradually add water while mixing until a dough forms, using only as much as needed.",
+        "Divide into 11 pieces and place rounds on an oiled tray. Cover with plastic and let rest for 3-4 hours. Stretch and fold each round into a rolled shape while spreading with margarine.",
+        "In a kubaneh pot, place a layer of dry bread, then parchment paper lining the pot.",
+        "Arrange the jachnun crosswise and cover again with parchment paper. Add a layer of aluminum foil and seal the pot.",
+        "Bake overnight, or for 7 hours, at 120°C (250°F)."
+      ],
+      "he": [
+        "שמים במיקסר את כל המרכיבים מלבד המים ומערבבים. מוסיפים מים בהדרגה תוך כדי ערבוב עד שמתקבל בצק, רק לפי הצורך.",
+        "מחלקים ל-11 חתיכות ומניחים עיגולים על מגש שמן. מכסים בניילון ומשהים ל-3-4 שעות. מותחים ומקפלים כל עיגול לגליל תוך מריחת מרגרינה.",
+        "בסיר קובנה מניחים שכבת לחם יבש ועליה נייר אפייה שמרפד את הסיר.",
+        "מניחים את הג'חנון שתי וערב ומכסים שוב בנייר אפייה. שמים שכבת נייר כסף ואוטמים את הסיר.",
+        "אופים כל הלילה, או 7 שעות, בחום 120 מעלות."
+      ]
+    }
+  },
+  {
+    "id": "lassis-soup-eggs",
+    "category": "shabbat-morning",
+    "title": {
+      "en": "Lassis Bean Soup with Eggs",
+      "he": "מרק לסיס וביצים"
+    },
+    "ingredients": {
+      "en": [
+        "1 cup black beans",
+        "2 cups water",
+        "2-6 eggs, as needed",
+        "Salt"
+      ],
+      "he": [
+        "1 כוס שעועית שחורה",
+        "2 כוסות מים",
+        "2-6 ביצים לפי הצורך",
+        "מלח"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Soak the beans overnight.",
+        "Drain the beans and add the water and salt.",
+        "Wash the eggs (in their shells) and add them to the pot.",
+        "Seal the pot with aluminum foil and cook alongside the jachnun."
+      ],
+      "he": [
+        "משרים את השעועית למשך הלילה.",
+        "מסננים את השעועית ומוסיפים את המים ומלח.",
+        "שוטפים את הביצים ומוסיפים לסיר.",
+        "אוטמים את הסיר עם נייר כסף ומבשלים עם הג'חנון."
+      ]
+    }
+  },
+  {
+    "id": "eli-shakshuka",
+    "category": "shabbat-morning",
+    "title": {
+      "en": "Eli's Shakshuka",
+      "he": "שקשוקה של אלי"
+    },
+    "ingredients": {
+      "en": [
+        "2 onions, diced",
+        "6 cloves garlic, thinly sliced",
+        "4 red or yellow peppers (or a mix), cut into strips",
+        "2 hot chili peppers, chopped",
+        "4 large ripe tomatoes, chopped",
+        "150g crumbled goat feta cheese",
+        "Salt and black pepper",
+        "1 tbsp sweet paprika",
+        "1 tbsp turmeric",
+        "1 tsp hawaij spice",
+        "Olive oil, for frying",
+        "6 eggs"
+      ],
+      "he": [
+        "2 בצלים קצוצים לקוביות",
+        "6 שיני שום פרוסים דק",
+        "4 פלפלים אדומים או צהובים (או מיקס!) חתוכים לרצועות",
+        "2 פלפלים חריפים צ'ילי קצוצים",
+        "4 עגבניות גדולות בשלות קצוצות",
+        "150 גר' גבינת פטה עיזים מפוררת",
+        "מלח ופלפל שחור",
+        "1 כף פפריקה מתוקה",
+        "1 כף כורכום",
+        "1 כפית חוואיג'",
+        "שמן זית לטיגון",
+        "6 ביצים"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Fry the onions and garlic in a little olive oil in a large pan until golden.",
+        "Add the peppers, tomatoes, and hot chili and continue frying for half an hour, until the peppers soften.",
+        "Add the spices. If needed, add a little water and cover.",
+        "At the end, scatter the feta cheese.",
+        "Make wells in the sauce and crack the eggs into them.",
+        "Cook for about 4 minutes, being careful not to dry it out."
+      ],
+      "he": [
+        "מטגנים את הבצלים ושיני השום במעט שמן זית במחבת גדולה עד שמזהיבים.",
+        "מוסיפים את הפלפלים, העגבניות והפלפל החריף וממשיכים לטגן כחצי שעה עד שהפלפלים מתרככים.",
+        "מוסיפים תבלינים. אם יש צורך מוסיפים מעט מים ומכסים.",
+        "בסוף מפזרים גבינת פטה.",
+        "יוצרים חורים ברוטב ומניחים בהם את הביצים.",
+        "מבשלים כ-4 דקות, תוך הקפדה שלא יתייבש."
+      ]
+    }
+  },
+  {
+    "id": "genia-matzah-brei",
+    "category": "shabbat-morning",
+    "title": {
+      "en": "Grandma Genia's Matzah Brei",
+      "he": "מצה בריי של סבתא גניה"
+    },
+    "ingredients": {
+      "en": [
+        "5-6 matzahs",
+        "3-4 eggs",
+        "Milk, enough to soak",
+        "A pinch of salt",
+        "Sugar, to taste"
+      ],
+      "he": [
+        "5-6 מצות",
+        "3-4 ביצים",
+        "חלב, לפי הצורך להשריה",
+        "קורט מלח",
+        "סוכר, לפי הטעם"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Break the matzahs into small pieces in a bowl. Add the milk and soak until the matzahs soften.",
+        "Separate the eggs and add the yolks to the bowl with the matzah. Add sugar and salt and mix.",
+        "Whisk the egg whites in a separate bowl by hand until slightly airy.",
+        "Fold the whipped whites into the matzah mixture, being careful not to deflate them.",
+        "Heat a large pan and fry the batter, half a cup at a time, in butter and oil."
+      ],
+      "he": [
+        "שוברים את המצות לחתיכות קטנות לתוך קערה. מוסיפים את החלב ומשרים עד שהמצות מתרככות.",
+        "מפרידים את הביצים ומוסיפים את החלמונים לקערה עם המצות. מוסיפים סוכר ומלח ומערבבים.",
+        "מקציפים את החלבונים בקערה נפרדת באופן ידני עד שהתערובת מעט אוורירית.",
+        "מקפלים את החלבונים המוקצפים לתוך התערובת עם המצות, ומקפידים לא להוציא את כל האוויר.",
+        "מחממים מחבת גדולה ומטגנים את הבלילה, חצי כוס בכל פעם, בחמאה ושמן."
+      ]
+    },
+    "notes": {
+      "en": "The original doesn't specify a sugar amount — add to taste, starting with a tablespoon or two.",
+      "he": "במקור לא צוינה כמות סוכר — יש להוסיף לפי הטעם, החל מכף או שתיים."
+    }
+  },
+  {
+    "id": "chocolate-hazelnut-meringue-cake",
+    "category": "sweet",
+    "title": {
+      "en": "Chocolate Cake with Hazelnut Meringue",
+      "he": "עוגת שוקולד עם מרנג אגוזי לוז"
+    },
+    "ingredients": {
+      "en": [
+        "350g dark chocolate 55% cocoa, chopped",
+        "150g soft butter",
+        "150g (3/4 cup) light brown sugar",
+        "6 eggs, separated",
+        "1.5 tbsp instant coffee powder (or 1 tsp vanilla extract)",
+        "1.5 tbsp rum",
+        "A pinch of salt",
+        "— Meringue —",
+        "120g dark chocolate, finely chopped",
+        "100g (1 cup) toasted, peeled, chopped hazelnuts",
+        "1 tbsp cornstarch",
+        "4 egg whites",
+        "150g (3/4 cup) sugar"
+      ],
+      "he": [
+        "350 גרם שוקולד מריר 55% מוצקי קקאו קצוץ",
+        "150 גרם חמאה רכה",
+        "150 גרם (3/4 כוס) סוכר חום בהיר",
+        "6 ביצים מופרדות",
+        "1.5 כפות אבקת קפה נמס (או כפית תמצית וניל)",
+        "1.5 כפות רום",
+        "קורט מלח",
+        "— למרנג —",
+        "120 גרם שוקולד מריר קצוץ דק",
+        "100 גרם (1 כוס) אגוזי לוז קלויים, קלופים וקצוצים",
+        "1 כף קורנפלור",
+        "4 חלבונים",
+        "150 גרם (3/4 כוס) סוכר"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Preheat oven to 175°C (350°F). Line a 24cm springform pan with parchment paper and grease the sides.",
+        "Melt the chocolate in the microwave or over a double boiler and let cool slightly.",
+        "Beat the butter and sugar in a mixer with the paddle attachment. Add the egg yolks one at a time, beating well after each. Add the melted chocolate, instant coffee, rum, and salt, and mix until smooth.",
+        "Whip the egg whites in a clean, dry bowl for about 2 minutes to soft peaks. Fold about 1/4 of the whites into the chocolate batter, then fold in the rest gently. Pour into the pan and level.",
+        "Bake for about 25 minutes until the cake sets. Remove from the oven (leave the oven on) and let cool slightly — it will lose some height, which is fine.",
+        "Mix together the chopped chocolate, hazelnuts, and cornstarch.",
+        "Whip the egg whites; once foamy, gradually add the sugar and whip for about 8 minutes to a glossy, stiff meringue. Fold the nut and chocolate mixture into the meringue.",
+        "Cover the cake with the meringue, creating peaks with a spoon or knife.",
+        "Bake for another 30 minutes, until the meringue is lightly golden.",
+        "Cool for about 10 minutes, run a knife around the edge, and release from the pan. Serve at room temperature."
+      ],
+      "he": [
+        "מחממים תנור ל-175 מעלות. מרפדים תבנית קפיצית בקוטר 24 ס\"מ בנייר אפייה ומשמנים את הדפנות.",
+        "ממיסים שוקולד במיקרוגל או על בן מארי ומצננים מעט.",
+        "מערבלים חמאה וסוכר בקערת מיקסר עם וו גיטרה. מוסיפים חלמונים אחד-אחד ומערבלים היטב אחרי כל הוספה. מוסיפים שוקולד מומס, אבקת קפה, רום ומלח וממשיכים לערבל עד לבלילה חלקה.",
+        "מקציפים חלבונים בקערה נקייה ויבשה כ-2 דקות לקצף רך. מקפלים כרבע מהקצף לתוך הבלילה ומערבבים היטב, ואז מוסיפים את היתרה בעדינות. יוצקים לתבנית ומיישרים.",
+        "אופים כ-25 דקות עד שהעוגה מתייצבת. מוציאים (התנור נשאר דלוק) ומצננים מעט — היא תאבד מעט מגובהה, וזה בסדר.",
+        "מערבבים היטב שוקולד קצוץ, אגוזים וקורנפלור.",
+        "מקציפים חלבונים. כשנוצר קצף מוסיפים סוכר בהדרגה וממשיכים להקציף כ-8 דקות לקצף מבריק ונוקשה. מקפלים את תערובת האגוזים והשוקולד לתוך הקצף.",
+        "מצפים את העוגה במרנג ויוצרים תלוליות בעזרת כף או סכין.",
+        "אופים עוד כ-30 דקות עד שהמרנג מזהיב קלות.",
+        "מצננים כ-10 דקות, מעבירים סכין בין הדפנות לתבנית ומחלצים בזהירות. מגישים בטמפרטורת החדר."
+      ]
+    }
+  },
+  {
+    "id": "shavuot-cheesecake",
+    "category": "sweet",
+    "title": {
+      "en": "Shavuot Cheesecake",
+      "he": "עוגת גבינה לשבועות"
+    },
+    "ingredients": {
+      "en": [
+        "— Crust —",
+        "1 2/3 cups (170g) petit beurre biscuits, finely ground",
+        "1/4 cup (50g) sugar",
+        "100g melted butter",
+        "— Cheese filling —",
+        "3 containers (750g) 9% white cheese (quark)",
+        "1/2 cup + 1/3 cup (180g) sugar",
+        "1 tsp vanilla extract",
+        "6 large eggs",
+        "— Topping —",
+        "2 containers (400ml) sour cream",
+        "2 tbsp sugar",
+        "2 packets (20g) vanilla sugar"
+      ],
+      "he": [
+        "— לתחתית —",
+        "1 2/3 כוסות (170 גרם) ביסקוויטים \"פתי בר\" טחונים דק",
+        "1/4 כוס (50 גרם) סוכר",
+        "100 גרם חמאה מומסת",
+        "— לגבינה —",
+        "3 מיכלים (750 גרם) גבינה לבנה 9%",
+        "1/2 כוס + 1/3 כוס (180 גרם) סוכר",
+        "1 כפית תמצית וניל",
+        "6 ביצים מס' 2",
+        "— לציפוי —",
+        "2 גביעים (400 מ\"ל) שמנת חמוצה",
+        "2 כפות סוכר",
+        "2 שקיות (20 גרם) סוכר וניל"
+      ]
+    },
+    "steps": {
+      "en": [
+        "For the crust: mix the biscuits with the sugar and butter. Grease the pan and press the crumbs firmly into the base. Freeze for at least 20 minutes.",
+        "For the filling: place the cheese, sugar, and vanilla extract in a bowl and mix with a mixer. Add the eggs one at a time, mixing to a uniform batter.",
+        "Preheat the oven to 150°C (300°F). Pour the cheese batter over the crust and bake for 40-45 minutes, until set but still soft in the center (rotate the pan halfway through). Remove and cool for 15 minutes.",
+        "For the topping: mix the sour cream, sugar, and vanilla sugar. Gently spread over the cake from the edges toward the center. Return to the oven and bake for another 8 minutes. Cool and refrigerate for at least 4 hours before serving."
+      ],
+      "he": [
+        "לתחתית: מערבבים את הביסקוויטים עם הסוכר והחמאה. משמנים את התבנית ומהדקים את הפירורים היטב לתחתית. מקפיאים לפחות 20 דקות.",
+        "לגבינה: שמים את הגבינה, הסוכר ותמצית הוניל בקערה ומערבלים במיקסר. מוסיפים את הביצים אחת אחת לבלילה אחידה.",
+        "מחממים תנור ל-150 מעלות. יוצקים את בלילת הגבינה על התחתית ואופים 40-45 דקות עד שמתייצבת אך עדיין רכה במרכז (מומלץ לסובב את התבנית באמצע). מוציאים ומצננים 15 דקות.",
+        "לציפוי: מערבבים שמנת חמוצה, סוכר וסוכר וניל. מצפים את העוגה בעדינות מהשוליים למרכז. מחזירים לתנור לעוד 8 דקות. מצננים ומקררים לפחות 4 שעות לפני ההגשה."
+      ]
+    }
+  },
+  {
+    "id": "perfect-coffee-cake",
+    "category": "sweet",
+    "title": {
+      "en": "The Perfect Coffee Cake",
+      "he": "העוגה המושלמת ליד הקפה"
+    },
+    "ingredients": {
+      "en": [
+        "200g soft butter",
+        "1.5 cups (300g) sugar",
+        "1 tsp vanilla extract",
+        "3 eggs",
+        "3 cups (420g) flour",
+        "1 tbsp baking powder",
+        "1 tsp baking soda",
+        "1/2 tsp salt",
+        "2.5 cups (500ml) sour cream",
+        "— Filling —",
+        "3/4 packed cup dark brown sugar",
+        "1 tbsp cinnamon",
+        "1 tbsp cocoa powder",
+        "1 cup (100g) chopped walnuts"
+      ],
+      "he": [
+        "200 גרם חמאה רכה",
+        "1.5 כוסות (300 גרם) סוכר",
+        "1 כפית תמצית וניל",
+        "3 ביצים",
+        "3 כוסות (420 גרם) קמח",
+        "1 כף אבקת אפייה",
+        "1 כפית אבקת סודה לשתייה",
+        "1/2 כפית מלח",
+        "2.5 כוסות (500 מ\"ל) שמנת חמוצה",
+        "— למלית —",
+        "3/4 כוס דחוסה סוכר חום כהה",
+        "1 כף קינמון",
+        "1 כף קקאו",
+        "1 כוס (100 גרם) אגוזי מלך קצוצים"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Preheat oven to 180°C (350°F).",
+        "In a mixer with the paddle attachment, beat the butter, sugar, and vanilla until creamy. Add the eggs one at a time, mixing to a uniform batter.",
+        "In a separate bowl, sift together the flour, baking powder, baking soda, and salt. On low speed, add the flour mixture alternately with the sour cream in 3 additions, starting and ending with flour.",
+        "Mix all the filling ingredients together with minimal stirring, just until combined.",
+        "Fill a 24cm bundt pan with the batter up to a third of its height. Layer over half the filling. Cover with batter up to two-thirds of the pan, add the remaining filling, then cover with the rest of the batter.",
+        "Bake for 45 minutes, until golden and a toothpick comes out clean."
+      ],
+      "he": [
+        "מחממים תנור ל-180 מעלות.",
+        "במיקסר עם וו גיטרה מערבבים חמאה, סוכר ותמצית וניל עד לקבלת תערובת קרמית. מוסיפים ביצים אחת אחת לתערובת אחידה.",
+        "בקערה נפרדת מנפים קמח, אבקת אפייה, אבקת סודה לשתייה ומלח. במהירות נמוכה מוסיפים את תערובת הקמח לסירוגין עם השמנת החמוצה ב-3 פעמים, מתחילים ומסיימים בקמח.",
+        "מערבבים את כל חומרי המלית בערבוב מינימלי, רק עד שמתאחדים.",
+        "ממלאים תבנית קוגלהוף בקוטר 24 ס\"מ בתערובת עד שליש הגובה. מניחים מחצית מהמלית. מכסים בתערובת עד שני שליש מהתבנית, מניחים את שארית המלית ומכסים ביתרת התערובת.",
+        "אופים 45 דקות עד שהעוגה זהובה ועוברת את מבחן הקיסם."
+      ]
+    }
+  },
+  {
+    "id": "coconut-malabi",
+    "category": "sweet",
+    "title": {
+      "en": "Coconut Malabi",
+      "he": "מלבי קוקוס"
+    },
+    "ingredients": {
+      "en": [
+        "1 can (400ml) coconut cream",
+        "Water (see steps)",
+        "6 tbsp (80g) cornstarch",
+        "1/2 cup + 2 tbsp (120g) sugar",
+        "1 tsp rose water"
+      ],
+      "he": [
+        "1 קופסת שימורים (400 מ\"ל) קרם קוקוס",
+        "מים (לפי השלבים)",
+        "6 כפות (80 גרם) קורנפלור",
+        "1/2 כוס + 2 כפות (120 גרם) סוכר",
+        "1 כפית מי ורדים"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Pour the coconut cream into a wide pot. Fill the empty can with water and add that to the pot too.",
+        "Fill the can halfway with water again and add the cornstarch to the can. Mix well until there are no lumps, then add to the pot.",
+        "Add the remaining ingredients and cook over medium heat, whisking constantly, until the mixture thickens. Important: don't remove from the heat until it thickens — it happens suddenly, after about 8-10 minutes.",
+        "Pour into individual cups, cover immediately, and refrigerate so a skin doesn't form.",
+        "Serve with malabi syrup, shredded coconut, and chopped peanuts, adding the syrup close to serving time."
+      ],
+      "he": [
+        "שופכים לסיר רחב את קרם הקוקוס מקופסת השימורים. ממלאים את הקופסה במים עד הסוף ומוסיפים גם אותם לסיר.",
+        "ממלאים שוב את הקופסה במים עד חצי גובה ומוסיפים לתוכה את הקורנפלור. מערבבים היטב עד שאין גושים, ומוסיפים לסיר.",
+        "מוסיפים את שאר המצרכים ומבשלים על אש בינונית, תוך טריפה מתמדת, עד שהתערובת מסמיכה. חשוב: לא להוריד מהאש עד שהיא מסמיכה — זה קורה בבת אחת אחרי כ-8-10 דקות.",
+        "מעבירים לכלים אישיים, סוגרים מיד ומעבירים למקרר כדי שלא יקבל קרום.",
+        "מגישים עם רוטב מלבי, קוקוס ובוטנים קצוצים, ומוסיפים את הרוטב סמוך להגשה."
+      ]
+    }
+  },
+  {
+    "id": "upgraded-orange-cake",
+    "category": "sweet",
+    "title": {
+      "en": "Upgraded Orange Cake",
+      "he": "עוגת תפוזים משודרגת"
+    },
+    "ingredients": {
+      "en": [
+        "5 eggs, separated",
+        "1 packet vanilla sugar",
+        "1.25 cups sugar",
+        "Zest of 1 orange",
+        "1 cup self-rising flour",
+        "1/2 cup oil",
+        "1 cup orange juice"
+      ],
+      "he": [
+        "5 ביצים מופרדות",
+        "1 שקית סוכר וניל",
+        "1.25 כוסות סוכר",
+        "גרד קליפת תפוז אחד",
+        "1 כוס קמח אסם תופח",
+        "1/2 כוס שמן",
+        "1 כוס מיץ תפוזים"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Mix the egg yolks, sugar, vanilla sugar, oil, and orange juice.",
+        "Add the flour.",
+        "Whip the egg whites to stiff peaks.",
+        "Gently fold the whites into the batter and pour into a greased pan.",
+        "Bake for 40-45 minutes at 170°C (340°F)."
+      ],
+      "he": [
+        "מערבבים חלמונים, סוכר, סוכר וניל, שמן ומיץ תפוזים.",
+        "מוסיפים קמח.",
+        "מקציפים חלבונים לקצף יציב.",
+        "מקפלים בעדינות את החלבונים ומוזגים לתבנית משומנת.",
+        "אופים 40-45 דקות ב-170 מעלות."
+      ]
+    },
+    "notes": {
+      "en": "The original lists 1kg of flour, which looks like a typo given the other quantities — used 1 cup here; adjust if your mom's version really does call for more.",
+      "he": "במקור צוין 1 ק\"ג קמח, מה שנראה כשגיאת הקלדה ביחס לשאר הכמויות — כאן נעשה שימוש בכוס אחת; אפשר לתקן אם הגרסה המקורית באמת דורשת יותר."
+    }
+  },
+  {
+    "id": "classic-italian-biscotti",
+    "category": "sweet",
+    "title": {
+      "en": "Classic Italian Biscotti",
+      "he": "ביסקוטי איטלקי קלאסי"
+    },
+    "ingredients": {
+      "en": [
+        "2.5 cups (350g) flour",
+        "1 tsp baking powder",
+        "1/2 tsp baking soda",
+        "1/2 tsp salt",
+        "2 eggs",
+        "2 egg yolks",
+        "1 cup (200g) sugar",
+        "2 packets (20g) vanilla sugar",
+        "2 tbsp liqueur, whatever you like",
+        "1.5 cups (150g) hazelnuts",
+        "1.5 cups (150g) almonds"
+      ],
+      "he": [
+        "2.5 כוסות (350 גרם) קמח",
+        "1 כפית אבקת אפייה",
+        "1/2 כפית אבקת סודה לשתייה",
+        "1/2 כפית מלח",
+        "2 ביצים",
+        "2 חלמונים",
+        "1 כוס (200 גרם) סוכר",
+        "2 שקיות (20 גרם) סוכר וניל",
+        "2 כפות ליקר (מה שאוהבים)",
+        "1.5 כוסות (150 גרם) אגוזי לוז",
+        "1.5 כוסות (150 גרם) שקדים"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Preheat oven to 180°C (350°F).",
+        "Sift together the flour, baking powder, baking soda, and salt.",
+        "Whisk the eggs and yolks with both sugars for a minute or two, until slightly lightened. Add the liqueur while whisking.",
+        "Make a well in the dry ingredients and pour in the egg mixture. Mix just until a uniform dough forms; fold in the hazelnuts and almonds toward the end.",
+        "With wet hands, shape the dough into two logs on a parchment-lined tray, spaced apart. Bake 30-35 minutes, until firm to the touch. Cool, then lower the oven to 150°C (300°F).",
+        "Slice the logs into half-centimeter-thick slices with a bread knife. Lay on a rack and dry in the oven for 25-30 minutes, until dry to the touch. Cool completely and serve with coffee."
+      ],
+      "he": [
+        "מחממים תנור ל-180 מעלות.",
+        "מנפים יחד קמח, אבקת אפייה, אבקת סודה לשתייה ומלח.",
+        "טורפים ביצים וחלמונים עם שני סוגי הסוכר דקה-שתיים, עד שהתערובת מבהירה מעט. מוסיפים ליקר תוך כדי טריפה.",
+        "יוצרים גומה בחומרים היבשים ויוצקים פנימה את תערובת הביצים. מערבבים רק עד לבצק אחיד, ולקראת הסוף מוסיפים אגוזי לוז ושקדים.",
+        "בידיים רטובות יוצרים שתי כיכרות על תבנית מרופדת בנייר אפייה, במרווח ביניהן. אופים 30-35 דקות עד שיציבות למגע. מצננים ומורידים את חום התנור ל-150 מעלות.",
+        "פורסים את הכיכרות לפרוסות בעובי חצי ס\"מ בעזרת סכין לחם. משכיבים על רשת ומייבשים בתנור 25-30 דקות עד שיבשות למגע. מצננים לחלוטין ומגישים עם קפה."
+      ]
+    },
+    "notes": {
+      "en": "Five classic variations from the same base dough: Chocolate — swap 1/4 cup flour for sifted cocoa and 1 cup nuts for chocolate chips. Anise, sesame and date — swap the nuts for 1/4 cup sesame, 1/2 cup chopped dates, 1 tbsp anise seeds and orange zest, using cashews and almonds. White chocolate-dipped — dip the baked biscotti halfway into 200g melted white chocolate. Coffee — dissolve 1 tbsp instant coffee in the liqueur (coffee liqueur or brandy). Lemon — add the zest of 2 lemons to the dough and use limoncello as the liqueur.",
+      "he": "חמישה גרסאות קלאסיות מאותו בצק בסיס: שוקולד — מחליפים 1/4 כוס קמח בקקאו מנופה ו-1 כוס אגוזים בשוקולד צ'יפס. אניס, שומשום ותמרים — מחליפים את האגוזים ב-1/4 כוס שומשום, 1/2 כוס תמרים קצוצים, 1 כף זרעי אניס וקליפת תפוז, עם קשיו ושקדים. מצופה שוקולד לבן — טובלים את הביסקוטי האפויים עד מחצית הגובה ב-200 גרם שוקולד לבן מומס. קפה — ממיסים כף קפה נמס בליקר (ליקר קפה או ברנדי). לימון — מוסיפים קליפה מ-2 לימונים לבצק ומשתמשים בלימונצ'לו כליקר."
+    }
+  },
+  {
+    "id": "vilma-tea-cookies",
+    "category": "sweet",
+    "title": {
+      "en": "Vilma's Tea Cookies",
+      "he": "עוגיות התה של וילמה"
+    },
+    "ingredients": {
+      "en": [
+        "2 packages (400g) unsalted margarine",
+        "1.5 cups sugar",
+        "5 packets vanilla sugar",
+        "2 eggs",
+        "Juice of 1 large lemon",
+        "700g (2 packages) self-rising flour"
+      ],
+      "he": [
+        "2 חבילות מרגרינה ללא מלח (400 גר')",
+        "1.5 כוסות סוכר",
+        "5 חבילות סוכר וניל",
+        "2 ביצים",
+        "מיץ מלימון 1 גדול",
+        "700 גר' קמח אסם תופח (2 חבילות)"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Beat the margarine, sugar, and vanilla sugar in a mixer until creamy.",
+        "Add the eggs, then finally the lemon juice.",
+        "Add the flour and mix briefly, just until barely combined.",
+        "Wrap in plastic and refrigerate overnight.",
+        "Preheat the oven to a low temperature.",
+        "Divide into 6 logs and bake for about 2 hours.",
+        "15 minutes before the end, cut diagonally and bake for another 15 minutes."
+      ],
+      "he": [
+        "מערבבים את המרגרינה, הסוכר וסוכר הוניל במיקסר עד לקבלת קרם.",
+        "מוסיפים את הביצים, ולבסוף מיץ הלימון.",
+        "מוסיפים קמח ומערבבים מעט עד שכמעט אין קמח נראה.",
+        "עוטפים בניילון ושמים במקרר למשך הלילה.",
+        "מחממים תנור לחום נמוך.",
+        "מחלקים ל-6 גלילים ואופים כשעתיים.",
+        "15 דקות לפני הסיום חותכים באלכסון ואופים עוד 15 דקות."
+      ]
+    }
+  },
+  {
+    "id": "ada-kaak-cookies",
+    "category": "sweet",
+    "title": {
+      "en": "Ada's Ka'ak Cookies",
+      "he": "עוגיות כעכים של עדה"
+    },
+    "ingredients": {
+      "en": [
+        "6 eggs",
+        "1/2 cup sugar",
+        "1 cup oil",
+        "2 packets baking powder",
+        "1kg flour"
+      ],
+      "he": [
+        "6 ביצים",
+        "1/2 כוס סוכר",
+        "1 כוס שמן",
+        "2 אבקות אפייה",
+        "1 ק\"ג קמח"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Beat the eggs.",
+        "Gradually add the sugar.",
+        "Then add the flour, baking powder, and oil.",
+        "Let the dough rest for 15-20 minutes.",
+        "Shape into ka'ak (ring-shaped cookies).",
+        "Bake at 180-200°C (350-400°F) until golden."
+      ],
+      "he": [
+        "מקציפים את הביצים.",
+        "מוסיפים את הסוכר בהדרגה.",
+        "אח\"כ את הקמח, אבקת האפייה והשמן.",
+        "משהים את הבצק ל-15-20 דקות.",
+        "מכינים כעכים.",
+        "אופים בתנור 180-200 מעלות עד שמזהיבים."
+      ]
+    }
+  },
+  {
+    "id": "dani-chocolate-balls",
+    "category": "sweet",
+    "title": {
+      "en": "Dani's Chocolate Truffle Balls",
+      "he": "כדורי שוקולד לדני"
+    },
+    "ingredients": {
+      "en": [
+        "240ml (1 cup) milk",
+        "100g butter",
+        "100g (1/2 cup) sugar",
+        "50g (4 heaping tbsp) sifted cocoa powder",
+        "1 tsp vanilla extract or rum extract",
+        "100g milk chocolate, chopped",
+        "100g dark chocolate, chopped",
+        "300g biscuits or butter cookies, roughly crumbled",
+        "Shredded coconut or colorful sprinkles, for coating"
+      ],
+      "he": [
+        "240 מ\"ל (1 כוס) חלב",
+        "100 גר' חמאה",
+        "100 גר' (1/2 כוס) סוכר",
+        "50 גר' (4 כפות גדושות) אבקת קקאו מנופה",
+        "1 כפית תמצית וניל או תמצית רום",
+        "100 גר' שוקולד חלב קצוץ",
+        "100 גר' שוקולד מריר קצוץ",
+        "300 גר' ביסקוויטים או עוגיות חמאה מפוררים גס",
+        "קוקוס טחון או סוכריות צבעוניות, לציפוי"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Heat the milk, butter, and sugar in a pot, stirring, until the butter and sugar melt. Add the cocoa, mix, and bring to a boil. Remove from heat, add the vanilla or rum extract, and mix.",
+        "Pour the hot mixture over the two types of chocolate and mix until smooth. Add the crumbled cookies and mix.",
+        "Cover with plastic wrap and refrigerate for an hour, until the mixture firms up.",
+        "Shape into 4cm balls and roll in coconut or colorful sprinkles."
+      ],
+      "he": [
+        "מחממים חלב, חמאה וסוכר בסיר תוך כדי בחישה, עד שהחמאה והסוכר נמסים. מוסיפים קקאו, מערבבים ומביאים לרתיחה. מסירים מהאש, מוסיפים תמצית וניל או רום ומערבבים.",
+        "יוצקים את התערובת החמה על שני סוגי השוקולד ומערבבים עד לתערובת חלקה. מוסיפים פירורי עוגיות ומערבבים.",
+        "עוטפים בניילון נצמד ומעבירים למקרר לשעה עד להתייצבות.",
+        "יוצרים כדורים בקוטר 4 ס\"מ ומגלגלים בקוקוס או בסוכריות צבעוניות."
+      ]
+    },
+    "notes": {
+      "en": "Keeps in an airtight container in the fridge for up to a week, or in the freezer for up to a month.",
+      "he": "נשמרים בכלי אטום במקרר עד שבוע, או במקפיא עד חודש."
+    }
+  },
+  {
+    "id": "vegan-banana-muffins",
+    "category": "sweet",
+    "title": {
+      "en": "Vegan Banana Muffins",
+      "he": "בננה מאפינס טבעוני"
+    },
+    "ingredients": {
+      "en": [
+        "3 very ripe large bananas (about 1⅓ cups mashed, ~320g)",
+        "1/2 cup brown sugar (100g)",
+        "1/4 cup melted coconut oil (60ml)",
+        "1 tsp vanilla extract (5ml)",
+        "1/3 cup plant-based milk (~80ml)",
+        "2 cups all-purpose flour (250g)",
+        "1 tsp baking soda (5g)",
+        "1/2 tsp ground cinnamon (1.5g)",
+        "1/4 tsp salt (1.5g)",
+        "1/2 cup vegan chocolate chips (90g, optional)",
+        "1/2 cup chopped walnuts (50g, optional)"
+      ],
+      "he": [
+        "3 בננות גדולות מאוד בשלות (כ-1⅓ כוסות מעוכות, כ-320 גרם)",
+        "1/2 כוס סוכר חום (100 גרם)",
+        "1/4 כוס שמן קוקוס מותך (60 מ\"ל)",
+        "1 כפית תמצית וניל (5 מ\"ל)",
+        "1/3 כוס חלב צמחי (כ-80 מ\"ל)",
+        "2 כוסות קמח לבן רגיל (250 גרם)",
+        "1 כפית אבקת סודה לשתייה (5 גרם)",
+        "1/2 כפית קינמון טחון (1.5 גרם)",
+        "1/4 כפית מלח (1.5 גרם)",
+        "1/2 כוס שוקולד צ'יפס טבעוני (90 גרם, אופציונלי)",
+        "1/2 כוס אגוזי מלך קצוצים (50 גרם, אופציונלי)"
+      ]
+    },
+    "steps": {
+      "en": [
+        "Preheat oven to 175°C (350°F). Prepare a 12-cup muffin tin with liners or by greasing well.",
+        "In a large bowl, mix the mashed bananas, brown sugar, melted coconut oil, vanilla extract, and plant-based milk until uniform.",
+        "Add the flour, baking soda, cinnamon, and salt to the wet mixture. Mix until just combined — don't overmix.",
+        "Fold in the chocolate chips and chopped walnuts, if using.",
+        "Fill each muffin cup 3/4 full. Bake for 20-25 minutes, or until a toothpick inserted in the center comes out clean.",
+        "Let the muffins cool in the pan for 5 minutes, then transfer to a wire rack to cool completely."
+      ],
+      "he": [
+        "לחמם תנור ל-175 מעלות. להכין תבנית מאפינס עם 12 שקעים, לרפד בניירות מאפינס או לשמן היטב.",
+        "בקערה גדולה לערבב את הבננות המעוכות, הסוכר החום, שמן הקוקוס המותך, תמצית הוניל והחלב הצמחי עד לתערובת אחידה.",
+        "להוסיף את הקמח, אבקת הסודה לשתייה, הקינמון והמלח לתערובת הרטובה. לערבב רק עד שמתאחד — לא לערבב יתר על המידה.",
+        "לקפל פנימה את השוקולד צ'יפס והאגוזים הקצוצים, אם רוצים.",
+        "למלא כל שקע עד 3/4 מהגובה. לאפות 20-25 דקות, או עד שקיסם שמוכנס למרכז יוצא נקי.",
+        "להניח למאפינס להתקרר בתבנית 5 דקות, ואז להעביר לרשת קירור עד שיתקררו לחלוטין."
+      ]
+    }
+  }
+];
+
+  const ui = {
+    en: {
+      ingredients: 'Ingredients',
+      steps: 'Steps',
+      comingSoon: 'Recipes coming soon.',
+      footer: "Meira's Table — a family recipe collection"
+    },
+    he: {
+      ingredients: 'רשימת מצרכים',
+      steps: 'אופן ההכנה',
+      comingSoon: 'מתכונים בקרוב.',
+      footer: 'השולחן של מאירה — אוסף מתכוני משפחה'
+    }
+  };
+
+  let lang = 'en';
+
+  const htmlRoot = document.getElementById('htmlRoot');
+  const navLinks = document.getElementById('navLinks');
+  const main = document.getElementById('main');
+  const overlay = document.getElementById('overlay');
+  const sheet = document.getElementById('sheet');
+  const footerText = document.getElementById('footerText');
+
+  function stitchSVG(color){
+    return `<svg width="100%" height="10" preserveAspectRatio="none"><line x1="0" y1="5" x2="100%" y2="5" stroke="${color}" stroke-width="1.5" stroke-dasharray="1,7" stroke-linecap="round"/></svg>`;
+  }
+
+  function render() {
+    const dir = lang === 'he' ? 'rtl' : 'ltr';
+    htmlRoot.setAttribute('dir', dir);
+    htmlRoot.setAttribute('lang', lang);
+
+    document.querySelectorAll('.lang-toggle button').forEach(b => {
+      b.classList.toggle('active', b.dataset.lang === lang);
+    });
+
+    footerText.textContent = ui[lang].footer;
+
+    navLinks.innerHTML = categories.map(c =>
+      `<a href="#${c.key}">${c[lang]}</a>`
+    ).join('');
+
+    main.innerHTML = categories.map((c, i) => {
+      const recs = recipes.filter(r => r.category === c.key);
+      const body = recs.length
+        ? `<div class="grid">${recs.map(r => cardHTML(r)).join('')}</div>`
+        : `<div class="empty-note">${ui[lang].comingSoon}</div>`;
+      return `
+        <section class="category" id="${c.key}">
+          <div class="chapter-head">
+            <span class="chapter-num serif">${i + 1}</span>
+            <h2 class="chapter-title serif">${c[lang]}</h2>
+          </div>
+          <div class="stitch">${stitchSVG('var(--' + c.color + ')')}</div>
+          ${body}
+        </section>
+      `;
+    }).join('');
+
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('click', () => openRecipe(card.dataset.id));
+    });
+  }
+
+  function cardHTML(r) {
+    const cat = categories.find(c => c.key === r.category);
+    return `
+      <button class="card" data-id="${r.id}">
+        <span class="card-icon" style="color:var(--${cat.color});">${icons[cat.color]}</span>
+        <div class="card-title serif">${r.title[lang]}</div>
+      </button>
+    `;
+  }
+
+  function openRecipe(id) {
+    const r = recipes.find(x => x.id === id);
+    const cat = categories.find(c => c.key === r.category);
+    const notesHTML = r.notes ? `<div class="sheet-notes">${r.notes[lang]}</div>` : '';
+    sheet.innerHTML = `
+      <button class="close-btn" aria-label="Close">&times;</button>
+      <div class="sheet-head">
+        <span class="sheet-icon" style="color:var(--${cat.color});">${icons[cat.color]}</span>
+        <h2 class="serif">${r.title[lang]}</h2>
+      </div>
+      <div class="sheet-body">
+        <div>
+          <h3>${ui[lang].ingredients}</h3>
+          <ul>${r.ingredients[lang].map(i => `<li>${i}</li>`).join('')}</ul>
+        </div>
+        <div>
+          <h3>${ui[lang].steps}</h3>
+          <ol>${r.steps[lang].map(s => `<li>${s}</li>`).join('')}</ol>
+        </div>
+        ${notesHTML}
+      </div>
+    `;
+    sheet.querySelector('.close-btn').addEventListener('click', closeRecipe);
+    overlay.classList.add('open');
+  }
+
+  function closeRecipe() {
+    overlay.classList.remove('open');
+  }
+
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeRecipe();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeRecipe();
+  });
+
+  document.getElementById('langToggle').addEventListener('click', (e) => {
+    if (e.target.tagName !== 'BUTTON') return;
+    lang = e.target.dataset.lang;
+    render();
+  });
+
+  render();
+</script>
+
+</body>
+</html>
