@@ -9,18 +9,20 @@
 <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;600;700&family=Assistant:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --cream:#F3E8D6;
-    --card:#FFFBF2;
-    --ink:#2B2013;
-    --ink-soft:#6B5B45;
-    --line: rgba(43,32,19,0.14);
+    --cream:#F4F6EF;
+    --card:#FFFFFF;
+    --ink:#1D2B21;
+    --ink-soft:#5A6B5C;
+    --line: rgba(29,43,33,0.14);
 
-    --olive:#5B6B47;    --olive-soft:#E6E9DD;
-    --rust:#B0532A;     --rust-soft:#F3E1D5;
-    --mustard:#C89B3C;  --mustard-soft:#F6EAD2;
-    --clay:#8C5A3C;     --clay-soft:#EFE0D3;
-    --fig:#6B4A5E;      --fig-soft:#EEE1E6;
-    --honey:#D9A441;    --honey-soft:#FBF0DA;
+    --pine:#2C4A38;
+
+    --olive:#3F6B45;    --olive-soft:#E1EEE1;
+    --rust:#B5563A;     --rust-soft:#F4E0D5;
+    --mustard:#C68A2E;  --mustard-soft:#F6EAD1;
+    --clay:#7C5B3F;     --clay-soft:#EFE3D5;
+    --fig:#4A7A6E;      --fig-soft:#E1EDEA;
+    --honey:#7A4F63;    --honey-soft:#EEE1E7;
   }
 
   *{box-sizing:border-box;}
@@ -48,23 +50,14 @@
     min-height:280px;
     width:100%;
     overflow:hidden;
-    background:#7A5C3E;
-    /* HERO PHOTO: once a real photo is ready, delete .hero-illustration's <svg>
-       and instead set here: background-image:url('your-photo.jpg'); background-size:cover; background-position:center; */
-  }
-
-  .hero-illustration{
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
+    background:#1D2B21 url('hero-image.jpeg') center/cover no-repeat;
   }
 
   .hero::after{
     content:'';
     position:absolute;
     inset:0;
-    background:rgba(30,20,10,0.32);
+    background:rgba(12,20,14,0.42);
   }
 
   .hero-content{
@@ -81,12 +74,12 @@
 
   .site-title-en{
     font-size:clamp(2.4rem, 6vw, 3.6rem);
-    color:#FFFBF2;
+    color:#F7FAF4;
   }
 
   .site-title-he{
     font-size:clamp(1.2rem, 3vw, 1.6rem);
-    color:#F3E8D6;
+    color:#DCE8D8;
     margin-top:8px;
   }
 
@@ -102,7 +95,7 @@
     position:sticky;
     top:0;
     z-index:20;
-    background:rgba(243,232,214,0.96);
+    background:rgba(244,246,239,0.96);
     backdrop-filter:blur(6px);
     border-bottom:1px solid var(--line);
     padding:14px 20px;
@@ -133,7 +126,7 @@
 
   nav.topnav a:hover{
     color:var(--ink);
-    border-color:var(--rust);
+    border-color:var(--pine);
   }
 
   .lang-toggle{
@@ -189,7 +182,7 @@
 
   .chapter-num{
     font-size:2.4rem;
-    color:var(--rust);
+    color:var(--pine);
     line-height:1;
   }
 
@@ -235,11 +228,11 @@
 
   .card:hover{
     transform:translateY(-3px);
-    box-shadow:0 10px 22px rgba(43,32,19,0.1);
+    box-shadow:0 10px 22px rgba(29,43,33,0.1);
   }
 
   .card:focus-visible{
-    outline:2px solid var(--rust);
+    outline:2px solid var(--pine);
     outline-offset:2px;
   }
 
@@ -263,7 +256,7 @@
   .overlay{
     position:fixed;
     inset:0;
-    background:rgba(43,32,19,0.45);
+    background:rgba(29,43,33,0.45);
     display:none;
     align-items:flex-start;
     justify-content:center;
@@ -281,7 +274,7 @@
     border-radius:8px;
     padding:36px 34px 40px;
     position:relative;
-    box-shadow:0 20px 50px rgba(43,32,19,0.25);
+    box-shadow:0 20px 50px rgba(29,43,33,0.25);
   }
 
   .close-btn{
@@ -328,7 +321,7 @@
 
   .sheet h3{
     font-size:1.05rem;
-    color:var(--rust);
+    color:var(--pine);
     margin-top:0;
     margin-bottom:10px;
   }
@@ -368,48 +361,11 @@
 <body>
 
 <div class="hero">
-  <svg class="hero-illustration" viewBox="0 0 1200 620" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of a warm, set family table">
-    <rect width="1200" height="620" fill="#7A5C3E"/>
-    <rect width="1200" height="620" fill="#8C6A44" opacity="0.5"/>
-    <ellipse cx="600" cy="470" rx="640" ry="220" fill="#6E5236"/>
-    <ellipse cx="600" cy="300" rx="200" ry="200" fill="#F3E8D6"/>
-    <ellipse cx="600" cy="300" rx="160" ry="160" fill="#FFFBF2"/>
-    <ellipse cx="600" cy="300" rx="118" ry="118" fill="none" stroke="#D9C7A6" stroke-width="3"/>
-    <g stroke="#8C5A3C" stroke-width="10" stroke-linecap="round">
-      <line x1="380" y1="180" x2="380" y2="420"/>
-      <line x1="345" y1="180" x2="345" y2="260"/>
-      <line x1="365" y1="180" x2="365" y2="260"/>
-    </g>
-    <g stroke="#8C5A3C" stroke-width="10" stroke-linecap="round">
-      <line x1="825" y1="180" x2="825" y2="420"/>
-    </g>
-    <ellipse cx="825" cy="175" rx="16" ry="8" fill="#8C5A3C"/>
-    <g transform="translate(930,150)">
-      <rect x="-8" y="40" width="16" height="130" rx="6" fill="#B0532A"/>
-      <ellipse cx="0" cy="30" rx="12" ry="20" fill="#D9A441"/>
-      <ellipse cx="0" cy="24" rx="6" ry="11" fill="#F6EAD2"/>
-    </g>
-    <g transform="translate(985,155)">
-      <rect x="-7" y="35" width="14" height="115" rx="6" fill="#B0532A"/>
-      <ellipse cx="0" cy="26" rx="10" ry="17" fill="#D9A441"/>
-      <ellipse cx="0" cy="21" rx="5" ry="9" fill="#F6EAD2"/>
-    </g>
-    <g transform="translate(255,330)">
-      <path d="M0,40 C-30,10 -30,-30 0,-40 C30,-30 30,10 0,40 Z" fill="#5B6B47"/>
-      <path d="M0,-40 C10,-10 10,10 0,40" stroke="#4A5A38" stroke-width="3" fill="none"/>
-    </g>
-    <g transform="translate(215,300) rotate(-18)">
-      <ellipse cx="0" cy="0" rx="20" ry="9" fill="#5B6B47"/>
-    </g>
-    <g transform="translate(300,270) rotate(20)">
-      <ellipse cx="0" cy="0" rx="16" ry="7" fill="#6B7A58"/>
-    </g>
-  </svg>
   <div class="hero-content">
     <h1 class="site-title-en" id="titleEn">Meira's Table</h1>
     <div class="site-title-he" id="titleHe" dir="rtl">השולחן של מאירה</div>
     <svg class="divider" viewBox="0 0 180 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M2 8C15 2 25 2 38 8C51 14 61 14 74 8C87 2 97 2 110 8C123 14 133 14 146 8C159 2 169 2 178 8" stroke="#F3E8D6" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M2 8C15 2 25 2 38 8C51 14 61 14 74 8C87 2 97 2 110 8C123 14 133 14 146 8C159 2 169 2 178 8" stroke="#DCE8D8" stroke-width="2.5" stroke-linecap="round"/>
     </svg>
   </div>
 </div>
