@@ -19,6 +19,8 @@ This phase touches: `index.html` (remove embedded array, add loader/parser, keep
 
 **Local testing note:** `fetch()` requires the page be served over HTTP, not opened as `file://`. Use `python3 -m http.server` from the project root for local preview from here on (GitHub Pages already serves over HTTP, so production is unaffected).
 
+**Deployment gotcha (hit once, fixed):** GitHub Pages runs a Jekyll build by default. Jekyll treats any file with YAML frontmatter (`---...---`) as a page to render, so it was converting every `recipes/*.md` into a themed `.html` file and dropping the raw `.md` the site fetches at runtime — the live site loaded with an empty recipe list even though everything worked locally. Fixed by adding an empty `.nojekyll` file at the repo root, which tells Pages to serve every file as-is. Keep `.nojekyll` in the repo — if it's ever removed, this breaks again.
+
 ## Phase 2 — Recipe detail becomes a routed page, not a modal
 
 Currently clicking a card opens a fixed-position modal overlay (`.overlay`/`.sheet`). The user wants a dedicated page per recipe instead — easier to read at the stove — while keeping the sticky top nav (categories + language toggle) visible and usable.
@@ -69,4 +71,14 @@ Touches: `index.html` (parser field, recipe-page render), `recipes/images/` (fol
 - After Phase 2: click into a recipe, confirm nav/lang-toggle stay usable, confirm browser back button returns to the homepage at the right scroll position, confirm switching language while viewing a recipe re-renders that same recipe (not the homepage), test print preview on a recipe page.
 - After Phase 3: search a Hebrew word while UI is in English (and vice versa) and confirm matches appear; search a tag name and confirm all recipes carrying that tag appear even without the word in their title/ingredients.
 - After Phase 4: check rendered `<head>` manually (view source) for correct og:title/description/image; optionally paste the live URL into a link-preview debugger to confirm rendering.
-- After Phase 5: add one real photo to one recipe, confirm it shows on both the card thumbnail and the recipe page, confirm every recipe without a photo still falls back cleanly to its category icon.
+- After Phase 5: add one real photo to one recipe, confirm it shows on the recipe page, confirm every recipe without a photo still falls back cleanly to its category icon on both the card and the recipe page.
+
+## Future ideas — community features (not started, revisit if/when wanted)
+
+Discussed 2026-09-13, deliberately not pursued yet — recorded here so we don't re-litigate the tradeoffs from scratch later.
+
+- **Hearts / kudos on recipes.** Key fork: *personal* (each visitor's own browser remembers what they hearted, via `localStorage` — trivial, no backend, no visibility to others) vs. *shared* (a visible count everyone sees — requires adding a real backend, since the site currently has none; a hosted service like Firebase/Supabase free tier, called via `fetch()` from the browser, would work without needing Node/a build step). Recommendation: start personal-only unless the "others liked this too" signal specifically matters.
+- **Comment box on recipes.** Bigger lift than hearts — same backend requirement, plus real spam/moderation exposure since the site sits at a public URL. Recommendation against a custom comment system for this audience/scale. Lower-risk alternatives if revisited: a quiet "email me your thoughts" link (no infra), or a hosted widget like giscus for real on-page comments (lowest-effort real implementation, but requires commenters to have a GitHub account).
+- **A submission form so recipes can be added without touching Markdown.** The one worth prioritizing first if any of these move forward — it's a direct continuation of the Markdown refactor's goal. Recommendation: not a full auto-publish pipeline (OAuth apps, API tokens, ongoing maintenance — too much infrastructure for a low-frequency family site). Simplest real version: a Google Form (title, ingredients, steps, category, optional photo) feeding a Google Sheet; new entries get converted into `recipes/*.md` files and pushed periodically (manually, or by asking Claude to do the conversion batch), the same motion used to convert the original 34 recipes.
+
+Note: if both shared hearts and comments are ever pursued, they'd share the same backend — worth deciding together rather than separately.
